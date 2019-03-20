@@ -49,7 +49,6 @@ public class FlowNetwork {
             System.out.print(edge_capacity[i] + "\n");
         }
 
-        System.out.println("Augmented Path: "+isHavingAugPath(1,numOfNodes));
     }
 
     private static int capacityGenerator() {
