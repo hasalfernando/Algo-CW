@@ -5,7 +5,6 @@ public class FlowNetwork {
 
     private static int numOfNodes = (int)((Math.random() * 9) + 4);
     private static int numOfEdges = (int)((Math.random() * (numOfNodes*(numOfNodes-1))) + 1);
-
     private static int[] nodes = new int[numOfNodes];
     private static char[] nodeNames = new char[numOfNodes];
     private static int[] edge_u = new int[numOfEdges];
@@ -19,7 +18,7 @@ public class FlowNetwork {
 
         System.out.println("Nodes: "+numOfNodes);
         System.out.println("Edges: "+numOfEdges);
-/*
+
         for(int i=0; i<numOfNodes; i++){
             nodes[i] = i+1;
             if(i==0){
@@ -32,33 +31,22 @@ public class FlowNetwork {
                 nodeNames[i]=(char)(i+96);
             }
         }
-*/
+        int tempVNode = 0;
         for(int i = 0; i<edge_u.length; i++){
-            edge_u[i]=(int)((Math.random() * numOfNodes) + 1);
-            int tempVNode;
-            do{
-                tempVNode = (int)((Math.random() * numOfNodes) + 1);
-                System.out.println(tempVNode);
-            }while((tempVNode == edge_u[i])||(isConnected(edge_u[i],tempVNode)));
+            do {
+                edge_u[i] = (int) ((Math.random() * numOfNodes) + 1);
+                tempVNode = (int) ((Math.random() * numOfNodes) + 1);
+            }while((tempVNode == edge_u[i])|(isConnected(edge_u[i],tempVNode)));
 
             edge_v[i]=tempVNode;
             edge_capacity[i] = capacityGenerator();
             connect(edge_u[i],edge_v[i]);
         }
 
-        System.out.println("edge U");
         for (int i = 0; i<edge_u.length; i++) {
-            System.out.print(edge_u[i] + " ");
-        }
-
-        System.out.println("\nedge V");
-        for (int i = 0 ; i<edge_v.length; i++) {
-            System.out.print(edge_v[i] + " ");
-        }
-
-        System.out.println("\nCapacities");
-        for (int anEdge_capacity : edge_capacity) {
-            System.out.print(anEdge_capacity + " ");
+            System.out.print(nodeNames[edge_u[i]-1] + " -> ");
+            System.out.print(nodeNames[edge_v[i]-1] + " = ");
+            System.out.print(edge_capacity[i] + "\n");
         }
 
     }
