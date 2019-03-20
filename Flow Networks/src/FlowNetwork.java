@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.List;
+
 public class FlowNetwork {
 
     public static void main(String[] args) {
@@ -10,6 +13,7 @@ public class FlowNetwork {
             arr[i] = (int)((Math.random() * 16) + 5);
             System.out.println(arr[i]);
         }
+
 
     }
 }
