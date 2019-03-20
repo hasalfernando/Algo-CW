@@ -4,7 +4,7 @@ import java.util.List;
 public class FlowNetwork {
 
     private static int numOfNodes = (int)((Math.random() * 9) + 4);
-    private static int numOfEdges = (int)((Math.random() * (numOfNodes*(numOfNodes-1))) + 1);
+    private static int numOfEdges = (int)((Math.random() * (numOfNodes*(numOfNodes-1))+1) + 1);
     private static int[] nodes = new int[numOfNodes];
     private static char[] nodeNames = new char[numOfNodes];
     private static int[] edge_u = new int[numOfEdges];
@@ -49,6 +49,7 @@ public class FlowNetwork {
             System.out.print(edge_capacity[i] + "\n");
         }
 
+        System.out.println("Augmented Path: "+isHavingAugPath(1,numOfNodes));
     }
 
     private static int capacityGenerator() {
@@ -66,5 +67,20 @@ public class FlowNetwork {
         else{
             return false;
         }
+    }
+
+    private static boolean isHavingAugPath(int u, int v){
+        boolean available = false;
+        for(int i = 0; i<connected[u-1].length; i++){
+            if(connected[u-1][i]>0){
+                    if(connected[i][v-1]==1){
+                        available = true;
+                    }
+            }
+        }
+        if(isConnected(u,v)){
+            available = true;
+        }
+        return available;
     }
 }
