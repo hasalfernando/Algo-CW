@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 class FordFulkerson{
 
-    static final int V = 6; //Number of vertices in graph
+    int V = 6; //Number of vertices in graph
 
     /* Returns true if there is a path from source 's' to sink
     't' in residual graph. Also fills parent[] to store the
@@ -48,8 +48,9 @@ class FordFulkerson{
     }
 
     // Returns tne maximum flow from s to t in the given graph
-    int fordFulkerson(int graph[][], int s, int t){
+    int fordFulkerson(int graph[][], int s, int t, int numOfNodes){
 
+        this.V = numOfNodes;
         int u, v;
 
         // Create a residual graph and fill the residual graph
@@ -115,7 +116,7 @@ class FordFulkerson{
 
         FordFulkerson m = new FordFulkerson();
 
-        System.out.println("The maximum possible flow is " + m.fordFulkerson(graph, 0, 5));
+        //System.out.println("The maximum possible flow is " + m.fordFulkerson(graph, 0, 5));
 
     }
 }
