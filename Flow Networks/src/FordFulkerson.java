@@ -48,9 +48,9 @@ class FordFulkerson{
     }
 
     // Returns tne maximum flow from s to t in the given graph
-    int fordFulkerson(int graph[][], int s, int t, int numOfNodes){
+    int fordFulkerson(int graph[][], int s, int t, int V){
 
-        this.V = numOfNodes;
+        this.V = V;
         int u, v;
 
         // Create a residual graph and fill the residual graph

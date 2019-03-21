@@ -4,7 +4,7 @@ import java.util.List;
 public class FlowNetwork {
 
     private int numOfNodes = (int)((Math.random() * 7) + 6);
-    private int numOfEdges = (int)((Math.random() * (numOfNodes*(numOfNodes-1))+1) + 1);
+    private int numOfEdges = (int)((Math.random() * ((numOfNodes*(numOfNodes-1))-(numOfNodes-1)-(numOfNodes-2))+1)) + 2;
     private int[] nodes = new int[numOfNodes];
     private char[] nodeNames = new char[numOfNodes];
     private int[] edge_u = new int[numOfEdges];
@@ -29,7 +29,7 @@ public class FlowNetwork {
         //Making sure at least 1 augmented path is there
 
 
-        for(int i = 0; i<flowNetwork.edge_u.length; i++){
+        for(int i = 0; i<flowNetwork.numOfEdges; i++){
             do {
                 if(i==0){
                     flowNetwork.edge_u[i] = 1;
@@ -43,7 +43,7 @@ public class FlowNetwork {
                     flowNetwork.edge_u[i] = (int) (Math.random() * (flowNetwork.numOfNodes-1))+1;
                     tempVNode = (int)(Math.random() * (flowNetwork.numOfNodes-1))+2;
                 }
-            }while((tempVNode == flowNetwork.edge_u[i])||(flowNetwork.isConnected(flowNetwork.edge_u[i],tempVNode)));
+            }while((tempVNode==flowNetwork.edge_u[i])||(flowNetwork.isConnected(flowNetwork.edge_u[i],tempVNode)));
 
             flowNetwork.edge_v[i]=tempVNode;
             flowNetwork.edge_capacity[i] = flowNetwork.capacityGenerator();
@@ -51,7 +51,14 @@ public class FlowNetwork {
         }
 
         flowNetwork.printEdgeCapacities();
-
+/*
+        for(int i = 0; i<flowNetwork.numOfNodes; i++){
+            for(int j = 0; j<flowNetwork.numOfNodes; j++) {
+                System.out.print(flowNetwork.connected[i][j]+" ");
+            }
+            System.out.println(" ");
+        }
+*/
         FordFulkerson m = new FordFulkerson();
 
         System.out.println("The maximum possible flow is " + m.fordFulkerson(flowNetwork.connected, 0, flowNetwork.numOfNodes-1, flowNetwork.numOfNodes));
