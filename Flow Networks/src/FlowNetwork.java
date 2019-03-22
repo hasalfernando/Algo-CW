@@ -10,7 +10,6 @@ public class FlowNetwork {
     private int[] edge_u = new int[numOfEdges];
     private int[] edge_v = new int[numOfEdges];
     private int[][] edge_capacity = new int[numOfNodes][numOfNodes];
-    //private static int[] edge_reverse_capacity= new int[numOfEdges];
 
     private int[][] connected = new int[numOfNodes][numOfNodes];
 
