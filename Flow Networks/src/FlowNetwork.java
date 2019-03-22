@@ -9,7 +9,7 @@ public class FlowNetwork {
     private char[] nodeNames = new char[numOfNodes];
     private int[] edge_u = new int[numOfEdges];
     private int[] edge_v = new int[numOfEdges];
-    private int[] edge_capacity = new int[numOfEdges];
+    private int[][] edge_capacity = new int[numOfNodes][numOfNodes];
     //private static int[] edge_reverse_capacity= new int[numOfEdges];
 
     private int[][] connected = new int[numOfNodes][numOfNodes];
@@ -46,22 +46,32 @@ public class FlowNetwork {
             }while((tempVNode==flowNetwork.edge_u[i])||(flowNetwork.isConnected(flowNetwork.edge_u[i],tempVNode)));
 
             flowNetwork.edge_v[i]=tempVNode;
-            flowNetwork.edge_capacity[i] = flowNetwork.capacityGenerator();
+            flowNetwork.edge_capacity[flowNetwork.edge_u[i]-1][flowNetwork.edge_v[i]-1] = flowNetwork.capacityGenerator();
             flowNetwork.connect(flowNetwork.edge_u[i],flowNetwork.edge_v[i]);
         }
 
         flowNetwork.printEdgeCapacities();
-/*
+
+        System.out.println("-----------------------");
         for(int i = 0; i<flowNetwork.numOfNodes; i++){
             for(int j = 0; j<flowNetwork.numOfNodes; j++) {
                 System.out.print(flowNetwork.connected[i][j]+" ");
             }
             System.out.println(" ");
         }
-*/
-        //FordFulkerson m = new FordFulkerson();
 
-        //System.out.println("The maximum possible flow is " + m.fordFulkerson(flowNetwork.connected, 0, flowNetwork.numOfNodes-1, flowNetwork.numOfNodes));
+        System.out.println("-----------------------");
+        System.out.println("Capacity Matrix");
+        for(int i = 0; i<flowNetwork.numOfNodes; i++){
+            for(int j = 0; j<flowNetwork.numOfNodes; j++) {
+                System.out.printf("%02d ",flowNetwork.edge_capacity[i][j]);
+            }
+            System.out.println(" ");
+        }
+
+        FordFulkerson m = new FordFulkerson();
+
+        System.out.println("\nThe maximum possible flow is " + m.fordFulkerson(flowNetwork.edge_capacity, 0, flowNetwork.numOfNodes-1, flowNetwork.numOfNodes));
 
 
     }
@@ -70,7 +80,7 @@ public class FlowNetwork {
         for (int i = 0; i<edge_u.length; i++) {
             System.out.print(nodeNames[edge_u[i]-1] + " -> ");
             System.out.print(nodeNames[edge_v[i]-1] + " = ");
-            System.out.print(edge_capacity[i] + "\n");
+            System.out.print(edge_capacity[edge_u[i]-1][edge_v[i]-1] + "\n");
         }
     }
 
