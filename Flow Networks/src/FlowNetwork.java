@@ -5,7 +5,6 @@ public class FlowNetwork {
 
     private int numOfNodes = (int)((Math.random() * 7) + 6);
     private int numOfEdges = (int)(Math.random() * ((numOfNodes*(numOfNodes-1))-(2*numOfNodes)+3)-1)+2 ;
-    private int[] nodes = new int[numOfNodes];
     private char[] nodeNames = new char[numOfNodes];
     private int[] edge_u = new int[numOfEdges];
     private int[] edge_v = new int[numOfEdges];
@@ -17,35 +16,33 @@ public class FlowNetwork {
 
         FlowNetwork flowNetwork = new FlowNetwork();
 
-        System.out.println("Nodes: "+flowNetwork.numOfNodes);
-        System.out.println("Edges: "+flowNetwork.numOfEdges);
+        System.out.println("Number of Nodes: "+flowNetwork.numOfNodes);
+        System.out.println("Number of Edges: "+flowNetwork.numOfEdges);
         flowNetwork.assignNodeNames();
 
         int tempVNode = 0;
-        int tempForAugPath = (int)(Math.random() * (flowNetwork.numOfNodes-2))+ 2;
+        int tempForAugPath = (int)(Math.random() * (flowNetwork.numOfNodes-2))+ 1;
         System.out.println("Node which connects source and sink: "+tempForAugPath);
 
         //Making sure at least 1 augmented path is there
-
-
         for(int i = 0; i<flowNetwork.numOfEdges; i++){
             do {
                 if(i==0){
-                    flowNetwork.edge_u[i] = 1;
+                    flowNetwork.edge_u[i] = 0;
                     tempVNode = tempForAugPath;
                 }
                 else if(i==1){
                     flowNetwork.edge_u[i] = tempForAugPath;
-                    tempVNode = flowNetwork.numOfNodes;
+                    tempVNode = flowNetwork.numOfNodes-1;
                 }
                 else {
-                    flowNetwork.edge_u[i] = (int) (Math.random() * (flowNetwork.numOfNodes-1))+1;
-                    tempVNode = (int)(Math.random() * (flowNetwork.numOfNodes-1))+2;
+                    flowNetwork.edge_u[i] = (int) (Math.random() * (flowNetwork.numOfNodes-1));
+                    tempVNode = (int)(Math.random() * (flowNetwork.numOfNodes-1))+1;
                 }
             }while((tempVNode==flowNetwork.edge_u[i])||(flowNetwork.isConnected(flowNetwork.edge_u[i],tempVNode)));
 
             flowNetwork.edge_v[i]=tempVNode;
-            flowNetwork.edge_capacity[flowNetwork.edge_u[i]-1][flowNetwork.edge_v[i]-1] = flowNetwork.capacityGenerator();
+            flowNetwork.edge_capacity[flowNetwork.edge_u[i]][flowNetwork.edge_v[i]] = flowNetwork.capacityGenerator();
             flowNetwork.connect(flowNetwork.edge_u[i],flowNetwork.edge_v[i]);
         }
 
@@ -77,23 +74,25 @@ public class FlowNetwork {
 
     private void printEdgeCapacities(){
         for (int i = 0; i<edge_u.length; i++) {
-            System.out.print(nodeNames[edge_u[i]-1] + " -> ");
-            System.out.print(nodeNames[edge_v[i]-1] + " = ");
-            System.out.print(edge_capacity[edge_u[i]-1][edge_v[i]-1] + "\n");
+            System.out.print(nodeNames[edge_u[i]] + " -> ");
+            System.out.print(nodeNames[edge_v[i]] + " = ");
+            System.out.print(edge_capacity[edge_u[i]][edge_v[i]] + "\n");
         }
     }
 
     private void assignNodeNames(){
         for(int i=0; i<numOfNodes; i++){
-            nodes[i] = i+1;
             if(i==0){
                 nodeNames[i]='s';
+                System.out.println(i+" is "+nodeNames[i]);
             }
             else if(i==numOfNodes-1){
                 nodeNames[i]='t';
+                System.out.println(i+" is "+nodeNames[i]);
             }
             else{
                 nodeNames[i]=(char)(i+96);
+                System.out.println(i+" is "+nodeNames[i]);
             }
         }
 
@@ -103,13 +102,13 @@ public class FlowNetwork {
     }
 
     private void connect(int u, int v){
-        connected[u-1][v-1] = 1;
+        connected[u][v] = 1;
 
         //System.out.println(u+" to "+v+" connected");
     }
 
     private boolean isConnected(int u, int v){
-        if(connected[u-1][v-1]==1){
+        if(connected[u][v]==1){
             return true;
         }
         else{
