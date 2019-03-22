@@ -4,7 +4,7 @@ import java.util.List;
 public class FlowNetwork {
 
     private int numOfNodes = (int)((Math.random() * 7) + 6);
-    private int numOfEdges = (int)((Math.random() * ((numOfNodes*(numOfNodes-1))-(numOfNodes-1)-(numOfNodes-2))+1)) + 2;
+    private int numOfEdges = (int)(Math.random() * ((numOfNodes*(numOfNodes-1))-(2*numOfNodes)+3)-1)+2 ;
     private int[] nodes = new int[numOfNodes];
     private char[] nodeNames = new char[numOfNodes];
     private int[] edge_u = new int[numOfEdges];
@@ -23,7 +23,7 @@ public class FlowNetwork {
         flowNetwork.assignNodeNames();
 
         int tempVNode = 0;
-        int tempForAugPath = (int)((Math.random() * (flowNetwork.numOfNodes-1)) + 2);
+        int tempForAugPath = (int)(Math.random() * (flowNetwork.numOfNodes-2))+ 2;
         System.out.println("Node which connects source and sink: "+tempForAugPath);
 
         //Making sure at least 1 augmented path is there
@@ -59,9 +59,9 @@ public class FlowNetwork {
             System.out.println(" ");
         }
 */
-        FordFulkerson m = new FordFulkerson();
+        //FordFulkerson m = new FordFulkerson();
 
-        System.out.println("The maximum possible flow is " + m.fordFulkerson(flowNetwork.connected, 0, flowNetwork.numOfNodes-1, flowNetwork.numOfNodes));
+        //System.out.println("The maximum possible flow is " + m.fordFulkerson(flowNetwork.connected, 0, flowNetwork.numOfNodes-1, flowNetwork.numOfNodes));
 
 
     }
@@ -95,6 +95,7 @@ public class FlowNetwork {
 
     private void connect(int u, int v){
         connected[u-1][v-1] = 1;
+
         //System.out.println(u+" to "+v+" connected");
     }
 
