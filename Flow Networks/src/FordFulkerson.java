@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 class FordFulkerson{
 
-    int V = 6; //Number of vertices in graph
+    private int V = 0; //Number of vertices in graph
 
     /* Returns true if there is a path from source 's' to sink
     't' in residual graph. Also fills parent[] to store the
