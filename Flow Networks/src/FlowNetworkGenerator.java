@@ -1,7 +1,6 @@
 public class FlowNetworkGenerator {
 
-    private int numOfNodes = 0;
-    private int numOfEdges = 0;
+    private int numOfNodes, numOfEdges, tempForAugPath = 0;
     private char[] nodeNames;
     private int[] edge_u;
     private int[] edge_v;
@@ -13,42 +12,22 @@ public class FlowNetworkGenerator {
 
         FlowNetworkGenerator flowNetworkGenerator = new FlowNetworkGenerator();
 
-        flowNetworkGenerator.numOfNodes = flowNetworkGenerator.randomNumberGenerator(6,12);
-        flowNetworkGenerator.numOfEdges= flowNetworkGenerator.randomNumberGenerator(2,(flowNetworkGenerator.numOfNodes*(flowNetworkGenerator.numOfNodes-1))-(2*flowNetworkGenerator.numOfNodes)+3);
+        flowNetworkGenerator.numOfNodes = flowNetworkGenerator.generateRandomNumber(6,12);
+        flowNetworkGenerator.numOfEdges= flowNetworkGenerator.generateRandomNumber(2,(flowNetworkGenerator.numOfNodes*(flowNetworkGenerator.numOfNodes-1))-(2*flowNetworkGenerator.numOfNodes)+3);
         flowNetworkGenerator.nodeNames = new char[flowNetworkGenerator.numOfNodes];
         flowNetworkGenerator.edge_u = new int[flowNetworkGenerator.numOfEdges];
         flowNetworkGenerator.edge_v = new int[flowNetworkGenerator.numOfEdges];
         flowNetworkGenerator.edge_capacity = new int[flowNetworkGenerator.numOfNodes][flowNetworkGenerator.numOfNodes];
-
+        flowNetworkGenerator.tempForAugPath = flowNetworkGenerator.generateRandomNumber(1,flowNetworkGenerator.numOfNodes-2);
         System.out.println("Number of Nodes: "+ flowNetworkGenerator.numOfNodes);
         System.out.println("Number of Edges: "+ flowNetworkGenerator.numOfEdges);
 
         flowNetworkGenerator.assignNodeNames();
 
-        int tempVNode = 0;
-        int tempForAugPath = flowNetworkGenerator.randomNumberGenerator(1,flowNetworkGenerator.numOfNodes-2);
-        System.out.println("Node which connects source and sink: "+tempForAugPath);
+        System.out.println("Node which connects source and sink: "+flowNetworkGenerator.tempForAugPath);
 
-        //Making sure at least 1 augmented path is there
-        for(int i = 0; i< flowNetworkGenerator.numOfEdges; i++){
-            do {
-                if(i==0){
-                    flowNetworkGenerator.edge_u[i] = 0;
-                    tempVNode = tempForAugPath;
-                }
-                else if(i==1){
-                    flowNetworkGenerator.edge_u[i] = tempForAugPath;
-                    tempVNode = flowNetworkGenerator.numOfNodes-1;
-                }
-                else {
-                    flowNetworkGenerator.edge_u[i] = (int) (Math.random() * (flowNetworkGenerator.numOfNodes-1));
-                    tempVNode = (int)(Math.random() * (flowNetworkGenerator.numOfNodes-1))+1;
-                }
-            }while((tempVNode== flowNetworkGenerator.edge_u[i])||(flowNetworkGenerator.isConnected(flowNetworkGenerator.edge_u[i],tempVNode)));
+        flowNetworkGenerator.generateNetwork();
 
-            flowNetworkGenerator.edge_v[i]=tempVNode;
-            flowNetworkGenerator.connect(flowNetworkGenerator.edge_u[i], flowNetworkGenerator.edge_v[i]);
-        }
 
         flowNetworkGenerator.printEdgeCapacities();
 /*
@@ -76,7 +55,33 @@ public class FlowNetworkGenerator {
 
     }
 
-    private int randomNumberGenerator(int min, int max){
+    private void generateNetwork(){
+
+        int tempVNode;
+
+        //Making sure at least 1 augmented path is there
+        for(int i = 0; i< this.numOfEdges; i++){
+            do {
+                if(i==0){
+                    this.edge_u[i] = 0;
+                    tempVNode = tempForAugPath;
+                }
+                else if(i==1){
+                    this.edge_u[i] = tempForAugPath;
+                    tempVNode = this.numOfNodes-1;
+                }
+                else {
+                    this.edge_u[i] = (int) (Math.random() * (this.numOfNodes-1));
+                    tempVNode = (int)(Math.random() * (this.numOfNodes-1))+1;
+                }
+            }while((tempVNode== this.edge_u[i])||(this.isConnected(this.edge_u[i],tempVNode)));
+
+            this.edge_v[i]=tempVNode;
+            this.connect(this.edge_u[i], this.edge_v[i]);
+        }
+
+    }
+    private int generateRandomNumber(int min, int max){
         return (int)(Math.random()*(max-min+1))+min;
     }
 
@@ -118,12 +123,7 @@ public class FlowNetworkGenerator {
     }
 
     private boolean isConnected(int u, int v){
-        if(edge_capacity[u][v]>0){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return edge_capacity[u][v] > 0;
     }
 
 }
