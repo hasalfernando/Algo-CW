@@ -19,7 +19,7 @@ public class FlowNetworkGenerator {
         flowNetworkGenerator.edge_v = new int[flowNetworkGenerator.numOfEdges];
         flowNetworkGenerator.edge_capacity = new int[flowNetworkGenerator.numOfNodes][flowNetworkGenerator.numOfNodes];
         flowNetworkGenerator.tempForAugPath = flowNetworkGenerator.generateRandomNumber(1,flowNetworkGenerator.numOfNodes-2);
-        System.out.println("Number of Nodes: "+ flowNetworkGenerator.numOfNodes);
+        System.out.println("Number of Nodes(including s and t): "+ flowNetworkGenerator.numOfNodes);
         System.out.println("Number of Edges: "+ flowNetworkGenerator.numOfEdges);
 
         flowNetworkGenerator.assignNodeNames();
