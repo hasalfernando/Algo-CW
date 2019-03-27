@@ -16,12 +16,6 @@ public class JGraphAdapterDemo extends JApplet
 
     private JGraphXAdapter<String, DefaultEdge> jgxAdapter;
 
-    /**
-     * An alternative starting point for this demo, to also allow running this applet as an
-     * application.
-     *
-     * @param args command line arguments
-     */
     public static void main(String[] args)
     {
         JGraphAdapterDemo applet = new JGraphAdapterDemo();

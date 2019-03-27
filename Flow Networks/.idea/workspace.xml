@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="795d2697-ef60-4f8e-9a33-77d4c764dcc6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../FinalCW/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FinalCW/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FinalCW/.idea/sbt.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FinalCW/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FinalCW/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FinalCW/FinalCW.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FinalCW/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FinalCW/src/main/java/FlowNetworkGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FinalCW/src/main/java/FordFulkerson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FinalCW/src/main/java/JGraphAdapterDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Flow Networks/FlowNetworkGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Flow Networks/FordFulkerson.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Flow Networks/Test$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Flow Networks/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FinalCW/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FinalCW/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,7 +15,8 @@
     <session id="-792399474">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
+          <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.48" value="1" />
           <entry key="project.open.time.53" value="2" />
@@ -39,7 +26,7 @@
           <entry key="project.open.time.62" value="1" />
           <entry key="project.open.time.66" value="1" />
           <entry key="project.open.time.78" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -93,8 +80,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/JGraphAdapterDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+            <state relative-caret-position="527">
+              <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -180,8 +170,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -298,6 +288,7 @@
       <workItem from="1553365766649" duration="2562000" />
       <workItem from="1553398992302" duration="21356000" />
       <workItem from="1553586638848" duration="1273000" />
+      <workItem from="1553696505166" duration="625000" />
     </task>
     <task id="LOCAL-00001" summary="Ford Fulkerson added">
       <created>1552931790166</created>
@@ -366,13 +357,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98188000" />
+    <option name="totallyTimeSpent" value="98813000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11744966" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.118791945" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -450,8 +441,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JGraphAdapterDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <state relative-caret-position="527">
+          <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42e57697-b6a5-471c-b9f9-6e2ac171c0eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sbt.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FinalCW.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FlowNetworkGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FordFulkerson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/JGraphAdapterDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FordFulkerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FordFulkerson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/JGraphAdapterDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JGraphAdapterDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Flow Networks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Flow Networks/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Flow Networks/out/production/Flow Networks/FlowNetworkGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Flow Networks/out/production/Flow Networks/FordFulkerson.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Flow Networks/out/production/Flow Networks/Test$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Flow Networks/out/production/Flow Networks/Test.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,21 +19,22 @@
     <session id="436388060">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="6" />
+          <entry key="java" value="67" />
           <entry key="xml" value="53" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6" />
+          <entry key="JAVA" value="67" />
           <entry key="XML" value="53" />
         </counts>
       </usages-collector>
@@ -63,32 +53,27 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/JGraphAdapterDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3">
-              <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+            <state relative-caret-position="266">
+              <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1304#1325#0" expanded="true" />
+                <element signature="e#1160#1181#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/FordFulkerson.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="1074">
+              <caret line="183" column="2" selection-start-line="183" selection-start-column="2" selection-end-line="183" selection-end-column="2" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#564#573#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/FlowNetworkGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="117" column="30" lean-forward="true" selection-start-line="117" selection-start-column="30" selection-end-line="117" selection-end-column="30" />
+            <state relative-caret-position="1921">
+              <caret line="117" column="30" selection-start-line="117" selection-start-column="30" selection-end-line="117" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -119,8 +104,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/FordFulkerson.java" />
         <option value="$PROJECT_DIR$/src/main/java/JGraphAdapterDemo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FordFulkerson.java" />
       </list>
     </option>
   </component>
@@ -182,14 +167,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553588590882" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553707304178" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -210,7 +195,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.JGraphAdapterDemo">
+  <component name="RunManager" selected="Application.FlowNetworkGenerator">
     <configuration name="FlowNetworkGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FlowNetworkGenerator" />
       <module name="FinalCW" />
@@ -231,8 +216,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.JGraphAdapterDemo" />
         <item itemvalue="Application.FlowNetworkGenerator" />
+        <item itemvalue="Application.JGraphAdapterDemo" />
       </list>
     </recent_temporary>
   </component>
@@ -260,25 +245,25 @@
       <option name="presentableId" value="Default" />
       <updated>1553586881823</updated>
       <workItem from="1553586887679" duration="423000" />
-      <workItem from="1553587322789" duration="1822000" />
+      <workItem from="1553587322789" duration="2421000" />
+      <workItem from="1553697758596" duration="5144000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2245000" />
+    <option name="totallyTimeSpent" value="7988000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25302014" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25637585" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.32907802" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32907802" />
@@ -290,6 +275,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32907802" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -317,25 +303,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/FlowNetworkGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="117" column="30" lean-forward="true" selection-start-line="117" selection-start-column="30" selection-end-line="117" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/FordFulkerson.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="1921">
+          <caret line="117" column="30" selection-start-line="117" selection-start-column="30" selection-end-line="117" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/JGraphAdapterDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+        <state relative-caret-position="266">
+          <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1304#1325#0" expanded="true" />
+            <element signature="e#1160#1181#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/FordFulkerson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1074">
+          <caret line="183" column="2" selection-start-line="183" selection-start-column="2" selection-end-line="183" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#564#573#0" expanded="true" />
           </folding>
         </state>
       </provider>
