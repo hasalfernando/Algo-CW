@@ -21,6 +21,7 @@ class FordFulkerson extends JApplet{
     private static final Dimension DEFAULT_SIZE = new Dimension(530, 320);
 
     private JGraphXAdapter<String, DefaultEdge> jgxAdapter;
+    private static int number = 1;
 
 
     boolean bfs(int rGraph[][], int s, int t, int parent[]){
@@ -36,7 +37,7 @@ class FordFulkerson extends JApplet{
         LinkedList<Integer> queue = new LinkedList<Integer>();
         queue.add(s);
         visited[s] = true;
-        System.out.println("Visited " +s);
+        //System.out.println("Visited " +s);
 
         parent[s]=-1;
 
@@ -49,7 +50,7 @@ class FordFulkerson extends JApplet{
                 if (visited[v]==false && rGraph[u][v] > 0){
                     queue.add(v);
                     parent[v] = u;
-                    System.out.println("Visited " +v);
+                    //System.out.println("Visited " +v);
                     visited[v] = true;
                 }
             }
@@ -103,18 +104,20 @@ class FordFulkerson extends JApplet{
             for (v=t; v != s; v=parent[v]){
 
                 u = parent[v];
-                System.out.println("Connecting "+u+" to "+v+" having a capacity of "+rGraph[u][v]);
+                System.out.println(number+". Connecting "+u+" to "+v+" having a capacity of "+rGraph[u][v]);
                 System.out.println("---A flow of "+path_flow+ " is sent from "+u+" to "+v);
                 rGraph[u][v] -= path_flow;
                 rGraph[v][u] += path_flow;
                 System.out.println("------Available capacity from "+u+" to "+v+" = "+rGraph[u][v]);
                 System.out.println("------Available capacity from "+v+" to "+u+" = "+rGraph[v][u]);
+                System.out.println(" ");
+                number++;
             }
 
             // Add path flow to overall flow
             max_flow += path_flow;
         }
-        System.out.println("Visited " +t);
+        //System.out.println("Visited " +t);
         // Return the overall flow
         return max_flow;
     }
@@ -138,54 +141,4 @@ class FordFulkerson extends JApplet{
 
     }
 
-    public void graphGenerator(){
-        JGraphAdapterDemo applet = new JGraphAdapterDemo();
-        applet.init();
-
-        JFrame frame = new JFrame();
-        frame.getContentPane().add(applet);
-        frame.setTitle("JGraphT Adapter to JGraphX Demo");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-
-        ListenableGraph<String, DefaultEdge> g = new DefaultListenableGraph<String, DefaultEdge>(new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class));
-        jgxAdapter = new JGraphXAdapter<String, DefaultEdge>(g);
-        setPreferredSize(DEFAULT_SIZE);
-        mxGraphComponent component = new mxGraphComponent(jgxAdapter);
-        component.setConnectable(false);
-        component.getGraph().setAllowDanglingEdges(false);
-        getContentPane().add(component);
-        resize(DEFAULT_SIZE);
-
-        String v1 = "v1";
-        String v2 = "v2";
-        String v3 = "v3";
-        String v4 = "v4";
-
-        // add some sample data (graph manipulated via JGraphX)
-        g.addVertex(v1);
-        g.addVertex(v2);
-        g.addVertex(v3);
-        g.addVertex(v4);
-
-        g.addEdge(v1, v2);
-        g.addEdge(v2, v1);
-        g.addEdge(v3, v1);
-        g.addEdge(v4, v3);
-
-        // positioning via jgraphx layouts
-        mxCircleLayout layout = new mxCircleLayout(jgxAdapter);
-
-        // center the circle
-        int radius = 100;
-        layout.setX0((DEFAULT_SIZE.width / 2.0) - radius);
-        layout.setY0((DEFAULT_SIZE.height / 2.0) - radius);
-        layout.setRadius(radius);
-        layout.setMoveCircle(true);
-
-        layout.execute(jgxAdapter.getDefaultParent());
-        // that's all there is to it!...
-
-    }
 }

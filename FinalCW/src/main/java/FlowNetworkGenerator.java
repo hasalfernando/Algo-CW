@@ -1,10 +1,28 @@
-public class FlowNetworkGenerator {
+import com.mxgraph.layout.mxCircleLayout;
+import com.mxgraph.swing.mxGraphComponent;
+import org.jgrapht.ListenableGraph;
+import org.jgrapht.ext.JGraphXAdapter;
+import org.jgrapht.graph.DefaultDirectedGraph;
+import org.jgrapht.graph.DefaultEdge;
+import org.jgrapht.graph.DefaultListenableGraph;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class FlowNetworkGenerator extends JApplet{
 
     private int numOfNodes, numOfEdges, tempForAugPath = 0;
     private char[] nodeNames;
     private int[] edge_u;
     private int[] edge_v;
     private int[][] edge_capacity;
+
+    private static final long serialVersionUID = 2202072534703043194L;
+
+    private static final Dimension DEFAULT_SIZE = new Dimension(530, 320);
+
+    private JGraphXAdapter<String, DefaultEdge> jgxAdapter;
+    private static int number = 1;
 
     //private int[][] connected = new int[numOfNodes][numOfNodes];
 
@@ -54,6 +72,7 @@ public class FlowNetworkGenerator {
 
         System.out.println("\nThe maximum possible flow is " + m.fordFulkerson(flowNetworkGenerator.edge_capacity, 0, flowNetworkGenerator.numOfNodes-1, flowNetworkGenerator.numOfNodes));
 
+        flowNetworkGenerator.graphGenerator();
 
     }
 
@@ -95,6 +114,7 @@ public class FlowNetworkGenerator {
             //System.out.print(edge_capacity[edge_u[i]][edge_v[i]] + " |\n");
             System.out.println("-------------------------");
         }
+        System.out.println("\nSteps to search the maximum flow:\n");
     }
 
     private void assignNodeNames(){
@@ -128,6 +148,19 @@ public class FlowNetworkGenerator {
 
     private boolean isConnected(int u, int v){
         return edge_capacity[u][v] > 0;
+    }
+
+    public void graphGenerator(){
+        JGraphAdapterDemo applet = new JGraphAdapterDemo(this.numOfNodes,this.numOfEdges, this.edge_capacity);
+        applet.init();
+
+        JFrame frame = new JFrame();
+        frame.getContentPane().add(applet);
+        frame.setTitle("JGraphT Adapter to JGraphX Demo");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+
     }
 
 }
