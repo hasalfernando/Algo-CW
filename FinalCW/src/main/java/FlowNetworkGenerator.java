@@ -21,10 +21,12 @@ public class FlowNetworkGenerator {
         flowNetworkGenerator.tempForAugPath = flowNetworkGenerator.generateRandomNumber(1,flowNetworkGenerator.numOfNodes-2);
         System.out.println("Number of Nodes(including s and t): "+ flowNetworkGenerator.numOfNodes);
         System.out.println("Number of Edges: "+ flowNetworkGenerator.numOfEdges);
-
+        System.out.println("\n-------------------------");
+        System.out.println("| Connection | Capacity |");
+        System.out.println("-------------------------");
         flowNetworkGenerator.assignNodeNames();
 
-        System.out.println("Node which connects source and sink: "+flowNetworkGenerator.tempForAugPath);
+//        System.out.println("Node which connects source and sink: "+flowNetworkGenerator.tempForAugPath);
 
         flowNetworkGenerator.generateNetwork();
 
@@ -38,7 +40,7 @@ public class FlowNetworkGenerator {
             }
             System.out.println(" ");
         }
-*/
+
         System.out.println("-----------------------");
         System.out.println("Capacity Matrix");
         for(int i = 0; i< flowNetworkGenerator.numOfNodes; i++){
@@ -47,7 +49,7 @@ public class FlowNetworkGenerator {
             }
             System.out.println(" ");
         }
-
+*/
         FordFulkerson m = new FordFulkerson();
 
         System.out.println("\nThe maximum possible flow is " + m.fordFulkerson(flowNetworkGenerator.edge_capacity, 0, flowNetworkGenerator.numOfNodes-1, flowNetworkGenerator.numOfNodes));
@@ -87,9 +89,11 @@ public class FlowNetworkGenerator {
 
     private void printEdgeCapacities(){
         for (int i = 0; i<edge_u.length; i++) {
-            System.out.print(nodeNames[edge_u[i]] + " -> ");
-            System.out.print(nodeNames[edge_v[i]] + " = ");
-            System.out.print(edge_capacity[edge_u[i]][edge_v[i]] + "\n");
+            System.out.print("|   "+nodeNames[edge_u[i]] + " -> ");
+            System.out.print(nodeNames[edge_v[i]] + "   | ");
+            System.out.printf("   %02d    |\n", edge_capacity[edge_u[i]][edge_v[i]]);
+            //System.out.print(edge_capacity[edge_u[i]][edge_v[i]] + " |\n");
+            System.out.println("-------------------------");
         }
     }
 

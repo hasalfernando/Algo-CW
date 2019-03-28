@@ -36,6 +36,8 @@ class FordFulkerson extends JApplet{
         LinkedList<Integer> queue = new LinkedList<Integer>();
         queue.add(s);
         visited[s] = true;
+        System.out.println("Visited " +s);
+
         parent[s]=-1;
 
         // Standard BFS Loop
@@ -44,11 +46,10 @@ class FordFulkerson extends JApplet{
             int u = queue.poll();
 
             for (int v=0; v<V; v++){
-
                 if (visited[v]==false && rGraph[u][v] > 0){
-
                     queue.add(v);
                     parent[v] = u;
+                    System.out.println("Visited " +v);
                     visited[v] = true;
                 }
             }
@@ -62,7 +63,7 @@ class FordFulkerson extends JApplet{
     // Returns tne maximum flow from s to t in the given graph
     int fordFulkerson(int graph[][], int s, int t, int V){
 
-        graphGenerator();
+        //graphGenerator();
         this.V = V;
         int u, v;
 
@@ -102,14 +103,18 @@ class FordFulkerson extends JApplet{
             for (v=t; v != s; v=parent[v]){
 
                 u = parent[v];
+                System.out.println("Connecting "+u+" to "+v+" having a capacity of "+rGraph[u][v]);
+                System.out.println("---A flow of "+path_flow+ " is sent from "+u+" to "+v);
                 rGraph[u][v] -= path_flow;
                 rGraph[v][u] += path_flow;
+                System.out.println("------Available capacity from "+u+" to "+v+" = "+rGraph[u][v]);
+                System.out.println("------Available capacity from "+v+" to "+u+" = "+rGraph[v][u]);
             }
 
             // Add path flow to overall flow
             max_flow += path_flow;
         }
-
+        System.out.println("Visited " +t);
         // Return the overall flow
         return max_flow;
     }
