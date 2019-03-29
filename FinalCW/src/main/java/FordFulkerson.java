@@ -62,7 +62,7 @@ class FordFulkerson extends JApplet{
     }
 
     // Returns tne maximum flow from s to t in the given graph
-    int fordFulkerson(int graph[][], int s, int t, int V){
+    int fordFulkerson(int[][] graph, int s, int t, int V, MxGraphSample drawnGraph) throws InterruptedException {
 
         //graphGenerator();
         this.V = V;
@@ -106,6 +106,7 @@ class FordFulkerson extends JApplet{
                 u = parent[v];
                 System.out.println(number+". Connecting "+u+" to "+v+" having a capacity of "+rGraph[u][v]);
                 System.out.println("---A flow of "+path_flow+ " is sent from "+u+" to "+v);
+                drawnGraph.addEdge(u,v,path_flow,rGraph);
                 rGraph[u][v] -= path_flow;
                 rGraph[v][u] += path_flow;
                 System.out.println("------Available capacity from "+u+" to "+v+" = "+rGraph[u][v]);

@@ -26,7 +26,7 @@ public class FlowNetworkGenerator extends JApplet{
 
     //private int[][] connected = new int[numOfNodes][numOfNodes];
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         FlowNetworkGenerator flowNetworkGenerator = new FlowNetworkGenerator();
 
@@ -68,11 +68,13 @@ public class FlowNetworkGenerator extends JApplet{
             System.out.println(" ");
         }
 */
+        MxGraphSample drawnGraph = flowNetworkGenerator.graphGenerator();
+
         FordFulkerson m = new FordFulkerson();
 
-        System.out.println("\nThe maximum possible flow is " + m.fordFulkerson(flowNetworkGenerator.edge_capacity, 0, flowNetworkGenerator.numOfNodes-1, flowNetworkGenerator.numOfNodes));
+        System.out.println("\nThe maximum possible flow is " + m.fordFulkerson(flowNetworkGenerator.edge_capacity, 0, flowNetworkGenerator.numOfNodes-1, flowNetworkGenerator.numOfNodes,drawnGraph));
 
-        flowNetworkGenerator.graphGenerator();
+
 
     }
 
@@ -150,10 +152,11 @@ public class FlowNetworkGenerator extends JApplet{
         return edge_capacity[u][v] > 0;
     }
 
-    public void graphGenerator(){
+    public MxGraphSample graphGenerator(){
 
         MxGraphSample applet = new MxGraphSample();
         applet.createGraph(this.numOfNodes,this.numOfEdges, this.edge_capacity);
+        return applet;
 /*       JGraphAdapterDemo applet = new JGraphAdapterDemo(this.numOfNodes,this.numOfEdges, this.edge_capacity);
         applet.init();
 

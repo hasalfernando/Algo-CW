@@ -8,10 +8,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class MxGraphSample {
 
     private List<Object> vertexList = new ArrayList<Object>();
+    private List<Object> edgeList = new ArrayList<Object>();
     private int numOfNodes = 0;
     private int numOfEdges = 0;
     private List<Integer> lowerSList = new ArrayList<Integer>();
@@ -21,6 +23,11 @@ public class MxGraphSample {
     private int y = 500;
     private final int maxY = 1000;
     private static final Dimension DEFAULT_SIZE = new Dimension(1500, 1000);
+    final mxGraph graph = new mxGraph();
+    Object parent = graph.getDefaultParent();
+    final JFrame frame = new JFrame();
+    JPanel panel = new JPanel();
+    mxGraphComponent graphComponent = null;
 
     public void createGraph(int numOfNodes, int numOfEdges, int[][] edgeCapacity) {
 
@@ -32,16 +39,12 @@ public class MxGraphSample {
         this.lowerSList.add(4);
         this.lowerSList.add(7);
         this.lowerSList.add(8);
-        final JFrame frame = new JFrame();
         frame.setSize(1500, 1000);
-        JPanel panel = new JPanel();
         panel.setSize(frame.getMaximumSize().width,
                 frame.getMaximumSize().height);
 
-        final mxGraph graph = new mxGraph();
-        Object parent = graph.getDefaultParent();
-        graph.getModel().beginUpdate();
 
+        graph.getModel().beginUpdate();
         try {
 
             for(int i = 0; i<numOfNodes; i++) {
@@ -123,7 +126,7 @@ public class MxGraphSample {
             for(int i =0; i<this.numOfNodes;i++){
                 for(int j =0; j<this.numOfNodes;j++){
                     if(this.edgeCapacity[i][j]!=0) {
-                        graph.insertEdge(parent, null, String.valueOf(this.edgeCapacity[j][i]) + "/" + String.valueOf(this.edgeCapacity[i][j]), vertexList.get(i), vertexList.get(j));
+                        edgeList.add(graph.insertEdge(parent, ""+vertexList.get(i)+"-"+ vertexList.get(j)+"", "0/" + String.valueOf(this.edgeCapacity[i][j]), vertexList.get(i), vertexList.get(j)));
                     }
                 }
             }
@@ -139,24 +142,39 @@ public class MxGraphSample {
             layout.setRadius(radius);
             layout.setMoveCircle(true);
 
-            new mxParallelEdgeLayout(graph).execute(graph.getDefaultParent());
+            mxParallelEdgeLayout pLayout = new mxParallelEdgeLayout(graph);
+            pLayout.execute(graph.getDefaultParent());
 
-        } finally {
+        }
+        finally {
             graph.getModel().endUpdate();
         }
-        final mxGraphComponent graphComponent = new mxGraphComponent(graph);
 
+        graphComponent = new mxGraphComponent(graph);
         graphComponent.setFoldingEnabled(true);
-
         panel.setLayout(new BorderLayout());
         panel.add(graphComponent, BorderLayout.CENTER);
-
         frame.add(panel);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void addEdge(){
+    public void addEdge(int u, int v, int path_flow, int[][] rGraph) throws InterruptedException {
+        int tempCapacity[][]= rGraph;
+        for(int i=0; i<numOfNodes; i++){
+            for(int j=0; j<numOfNodes; j++){
+                System.out.println(tempCapacity[i][j]+ " ");
+            }
+            System.out.println(" ");
+        }
+        graph.getModel().beginUpdate();
+        try {
+            graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(tempCapacity[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red");
+            TimeUnit.SECONDS.sleep(2);
+        }
+        finally {
+            graph.getModel().endUpdate();
+        }
 
     }
 
