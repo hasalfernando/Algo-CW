@@ -45,61 +45,62 @@ public class MxGraphSample {
                 if (i == 0) {
                     System.out.println("x : "+this.x);
                     System.out.println("y : "+this.y);
-                    graph.insertVertex(parent, "0", "s", this.x, y, 50, 30);
-                    this.x = (1000/n);
+                    vertexList.add(graph.insertVertex(parent, "0", "s", this.x, y, 50, 30));
+                    this.x = (2400/n);
                     this.y = (1000/n);
                 }
                 else if (i == this.numOfNodes - 1) {
                     System.out.println("x : "+1300);
                     System.out.println("y : "+500);
-                    graph.insertVertex(parent, ""+i+"", "t", 1300, 500, 50, 30);
+                    vertexList.add(graph.insertVertex(parent, ""+i+"", "t", 1300, 500, 50, 30));
+
                 }
                 else {
                     if(i%2==0) {
                         if(lowerSList.contains(i)){
-                            if ((this.x * 2)+500 > 1400) {
+                            if (this.x+600 > 1400) {
                                 n = n * 2;
                                 this.x = maxX / n;
                                 this.y = maxY / n;
                             }
-                            System.out.println("x : " + this.x * 2);
-                            System.out.println("y : " + (this.y+500));
-                            graph.insertVertex(parent, "" + i + "", (char) (i + 96), (this.x * 2)+500, this.y+500, 50, 30);
+                            System.out.println("x : " + this.x+600);
+                            System.out.println("y : " + (this.y+600));
+                            vertexList.add(graph.insertVertex(parent, "" + i + "", (char) (i + 96), this.x+600, this.y+600, 50, 30));
                             this.y = this.y * 2;
+                            this.x = this.x *2;
                         }
                         else {
-                            if ((this.x * 2)+500 > 1400) {
+                            if ((this.x)+600 > 1400) {
                                 n = n * 2;
                                 this.x = maxX / n;
                                 this.y = maxY / n;
                             }
-                            System.out.println("x : " + this.x * 2);
+                            System.out.println("x : " + this.x +600);
                             System.out.println("y : " + this.y);
-                            graph.insertVertex(parent, "" + i + "", (char) (i + 96), (this.x * 2)+500, this.y, 50, 30);
-                            this.y = this.y * 2;
+                            vertexList.add(graph.insertVertex(parent, "" + i + "", (char) (i + 96), (this.x)+600, this.y, 50, 30));
                         }
                     }
                     else {
                         if(lowerSList.contains(i)) {
-                            if ((this.y * 2)+500 > 1000) {
+                            if ((this.y * 2)+600 > 1000) {
                                 n = n * 2;
                                 this.x = maxX / n;
                                 this.y = maxY / n;
                             }
                             System.out.println("x : " + (this.x));
-                            System.out.println("y : " + (this.y+500));
-                            graph.insertVertex(parent, "" + i + "", Character.toString((char) (i + 96)), this.x, this.y+500, 50, 30);
+                            System.out.println("y : " + (this.y+600));
+                            vertexList.add(graph.insertVertex(parent, "" + i + "", Character.toString((char) (i + 96)), this.x, this.y+600, 50, 30));
                             //this.x = this.x * 2;
                         }
                         else{
-                            if ((this.y * 2)+500 > 1000) {
+                            if ((this.y*2)+600 > 1000) {
                                 n = n * 2;
                                 this.x = maxX / n;
                                 this.y = maxY / n;
                             }
                             System.out.println("x : " + this.x);
                             System.out.println("y : " + this.y);
-                            graph.insertVertex(parent, "" + i + "", Character.toString((char) (i + 96)), this.x, this.y, 50, 30);
+                            vertexList.add(graph.insertVertex(parent, "" + i + "", Character.toString((char) (i + 96)), this.x, this.y, 50, 30));
                             //this.x = this.x * 2;
                         }
                     }
@@ -117,8 +118,8 @@ public class MxGraphSample {
             graph.cellsFolded(new Object[] {v1, v2, v3}, true, true);
 */
             mxCompactTreeLayout layout = new mxCompactTreeLayout(graph);
-            layout.setLevelDistance(40);
-            layout.setNodeDistance(30);
+            //layout.setLevelDistance(40);
+            //layout.setNodeDistance(30);
             layout.setEdgeRouting(false);
             layout.setUseBoundingBox(false);
             layout.execute(graph.getDefaultParent());
@@ -142,7 +143,7 @@ public class MxGraphSample {
 
     }
 
-    
+
     public static void main(String[] args) {
        // creategraph();
     }
