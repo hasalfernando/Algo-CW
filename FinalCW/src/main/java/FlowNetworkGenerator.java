@@ -31,7 +31,7 @@ public class FlowNetworkGenerator extends JApplet{
         FlowNetworkGenerator flowNetworkGenerator = new FlowNetworkGenerator();
 
         flowNetworkGenerator.numOfNodes = flowNetworkGenerator.generateRandomNumber(6,12);
-        flowNetworkGenerator.numOfEdges= flowNetworkGenerator.generateRandomNumber(2,(flowNetworkGenerator.numOfNodes*(flowNetworkGenerator.numOfNodes-1))-(2*flowNetworkGenerator.numOfNodes)+3);
+        flowNetworkGenerator.numOfEdges= flowNetworkGenerator.generateRandomNumber(flowNetworkGenerator.numOfNodes-2,(flowNetworkGenerator.numOfNodes*(flowNetworkGenerator.numOfNodes-1))-(2*flowNetworkGenerator.numOfNodes)+3);
         flowNetworkGenerator.nodeNames = new char[flowNetworkGenerator.numOfNodes];
         flowNetworkGenerator.edge_u = new int[flowNetworkGenerator.numOfEdges];
         flowNetworkGenerator.edge_v = new int[flowNetworkGenerator.numOfEdges];
@@ -151,16 +151,19 @@ public class FlowNetworkGenerator extends JApplet{
     }
 
     public void graphGenerator(){
-        JGraphAdapterDemo applet = new JGraphAdapterDemo(this.numOfNodes,this.numOfEdges, this.edge_capacity);
+
+        MxGraphSample applet = new MxGraphSample();
+        applet.createGraph(this.numOfNodes,this.numOfEdges, this.edge_capacity);
+/*       JGraphAdapterDemo applet = new JGraphAdapterDemo(this.numOfNodes,this.numOfEdges, this.edge_capacity);
         applet.init();
 
         JFrame frame = new JFrame();
         frame.getContentPane().add(applet);
-        frame.setTitle("JGraphT Adapter to JGraphX Demo");
+        frame.setTitle("Flow Network Representation");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-
+*/
     }
 
 }

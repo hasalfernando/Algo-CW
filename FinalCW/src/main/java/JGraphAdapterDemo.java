@@ -1,6 +1,7 @@
 
 import com.mxgraph.layout.*;
 import com.mxgraph.swing.*;
+import com.mxgraph.util.mxConstants;
 import org.jgrapht.*;
 import org.jgrapht.ext.*;
 import org.jgrapht.graph.*;
@@ -14,8 +15,8 @@ public class JGraphAdapterDemo extends JApplet
 {
     private static final long serialVersionUID = 2202072534703043194L;
 
-    private static final Dimension DEFAULT_SIZE = new Dimension(1000, 1000);
-
+    private static final Dimension DEFAULT_SIZE = new Dimension(1500, 1000);
+    private Color graphColor = Color.BLUE;
     private JGraphXAdapter<String, DefaultEdge> jgxAdapter;
     private int numOfNodes =0;
     private int numOfEdges =0;
@@ -50,11 +51,11 @@ public class JGraphAdapterDemo extends JApplet
 
         // create a visualization using JGraph, via an adapter
         jgxAdapter = new JGraphXAdapter<String, DefaultEdge>(g);
-
         setPreferredSize(DEFAULT_SIZE);
         mxGraphComponent component = new mxGraphComponent(jgxAdapter);
         component.setConnectable(false);
         component.getGraph().setAllowDanglingEdges(false);
+        component.setGridColor(graphColor);
         getContentPane().add(component);
         resize(DEFAULT_SIZE);
 
@@ -77,7 +78,6 @@ public class JGraphAdapterDemo extends JApplet
             for(int j = 0; j< this.numOfNodes; j++) {
                 if(capacityArray[i][j]!=0){
                     g.addEdge(vertexList.get(i),vertexList.get(j));
-                    g.setEdgeWeight(vertexList.get(i),vertexList.get(j),10);
                 }
             }
 
@@ -87,7 +87,7 @@ public class JGraphAdapterDemo extends JApplet
         mxCircleLayout layout = new mxCircleLayout(jgxAdapter);
 
         // center the circle
-        int radius = 300;
+        int radius = 400;
         layout.setX0((DEFAULT_SIZE.width / 2.0) - radius);
         layout.setY0((DEFAULT_SIZE.height / 2.0) - radius);
         layout.setRadius(radius);
@@ -95,5 +95,10 @@ public class JGraphAdapterDemo extends JApplet
 
         layout.execute(jgxAdapter.getDefaultParent());
         // that's all there is to it!...
+    }
+
+    @Override
+    public String toString(){
+        return "hi";
     }
 }
