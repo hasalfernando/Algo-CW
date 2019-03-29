@@ -1,4 +1,6 @@
+import com.mxgraph.layout.mxCircleLayout;
 import com.mxgraph.layout.mxCompactTreeLayout;
+import com.mxgraph.layout.mxParallelEdgeLayout;
 import com.mxgraph.swing.mxGraphComponent;
 import com.mxgraph.view.mxGraph;
 
@@ -18,6 +20,7 @@ public class MxGraphSample {
     private final int maxX = 1500;
     private int y = 500;
     private final int maxY = 1000;
+    private static final Dimension DEFAULT_SIZE = new Dimension(1500, 1000);
 
     public void createGraph(int numOfNodes, int numOfEdges, int[][] edgeCapacity) {
 
@@ -117,12 +120,26 @@ public class MxGraphSample {
 
             graph.cellsFolded(new Object[] {v1, v2, v3}, true, true);
 */
-            mxCompactTreeLayout layout = new mxCompactTreeLayout(graph);
+            for(int i =0; i<this.numOfNodes;i++){
+                for(int j =0; j<this.numOfNodes;j++){
+                    if(this.edgeCapacity[i][j]!=0) {
+                        graph.insertEdge(parent, null, String.valueOf(this.edgeCapacity[j][i]) + "/" + String.valueOf(this.edgeCapacity[i][j]), vertexList.get(i), vertexList.get(j));
+                    }
+                }
+            }
+//            graph.insertEdge(parent, null, String.valueOf(this.edgeCapacity[2][1])+"/"+String.valueOf(this.edgeCapacity[1][2]), vertexList.get(1), vertexList.get(2));
+            mxCircleLayout layout = new mxCircleLayout(graph);
             //layout.setLevelDistance(40);
             //layout.setNodeDistance(30);
-            layout.setEdgeRouting(false);
-            layout.setUseBoundingBox(false);
-            layout.execute(graph.getDefaultParent());
+            //layout.setEdgeRouting(false);
+            //layout.setUseBoundingBox(false);
+            int radius = 600;
+            layout.setX0((DEFAULT_SIZE.width / 2.0) - radius);
+            layout.setY0((DEFAULT_SIZE.height / 2.0) - radius);
+            layout.setRadius(radius);
+            layout.setMoveCircle(true);
+
+            new mxParallelEdgeLayout(graph).execute(graph.getDefaultParent());
 
         } finally {
             graph.getModel().endUpdate();
