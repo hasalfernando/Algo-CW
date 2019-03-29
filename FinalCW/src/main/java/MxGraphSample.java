@@ -51,14 +51,14 @@ public class MxGraphSample {
                 if (i == 0) {
                     System.out.println("x : "+this.x);
                     System.out.println("y : "+this.y);
-                    vertexList.add(graph.insertVertex(parent, "0", "s", this.x, y, 50, 30));
+                    vertexList.add(graph.insertVertex(parent, "0", "s", this.x, y, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
                     this.x = (2400/n);
                     this.y = (1000/n);
                 }
                 else if (i == this.numOfNodes - 1) {
                     System.out.println("x : "+1300);
                     System.out.println("y : "+500);
-                    vertexList.add(graph.insertVertex(parent, ""+i+"", "t", 1300, 500, 50, 30));
+                    vertexList.add(graph.insertVertex(parent, ""+i+"", "t", 1300, 500, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
 
                 }
                 else {
@@ -71,7 +71,7 @@ public class MxGraphSample {
                             }
                             System.out.println("x : " + this.x+600);
                             System.out.println("y : " + (this.y+600));
-                            vertexList.add(graph.insertVertex(parent, "" + i + "", (char) (i + 96), this.x+600, this.y+600, 50, 30));
+                            vertexList.add(graph.insertVertex(parent, "" + i + "", (char) (i + 96), this.x+600, this.y+600, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
                             this.y = this.y * 2;
                             this.x = this.x *2;
                         }
@@ -83,7 +83,7 @@ public class MxGraphSample {
                             }
                             System.out.println("x : " + this.x +600);
                             System.out.println("y : " + this.y);
-                            vertexList.add(graph.insertVertex(parent, "" + i + "", (char) (i + 96), (this.x)+600, this.y, 50, 30));
+                            vertexList.add(graph.insertVertex(parent, "" + i + "", (char) (i + 96), (this.x)+600, this.y, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
                         }
                     }
                     else {
@@ -95,7 +95,7 @@ public class MxGraphSample {
                             }
                             System.out.println("x : " + (this.x));
                             System.out.println("y : " + (this.y+600));
-                            vertexList.add(graph.insertVertex(parent, "" + i + "", Character.toString((char) (i + 96)), this.x, this.y+600, 50, 30));
+                            vertexList.add(graph.insertVertex(parent, "" + i + "", Character.toString((char) (i + 96)), this.x, this.y+600, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
                             //this.x = this.x * 2;
                         }
                         else{
@@ -106,7 +106,7 @@ public class MxGraphSample {
                             }
                             System.out.println("x : " + this.x);
                             System.out.println("y : " + this.y);
-                            vertexList.add(graph.insertVertex(parent, "" + i + "", Character.toString((char) (i + 96)), this.x, this.y, 50, 30));
+                            vertexList.add(graph.insertVertex(parent, "" + i + "", Character.toString((char) (i + 96)), this.x, this.y, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
                             //this.x = this.x * 2;
                         }
                     }
@@ -171,6 +171,12 @@ public class MxGraphSample {
         try {
             graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(tempCapacity[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red");
             TimeUnit.SECONDS.sleep(2);
+            graphComponent = new mxGraphComponent(graph);
+            graphComponent.setFoldingEnabled(true);
+            panel.setLayout(new BorderLayout());
+            panel.add(graphComponent, BorderLayout.CENTER);
+            frame.add(panel);
+            frame.setVisible(true);
         }
         finally {
             graph.getModel().endUpdate();
