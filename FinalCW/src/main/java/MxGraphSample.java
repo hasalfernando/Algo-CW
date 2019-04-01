@@ -131,7 +131,7 @@ public class MxGraphSample {
                 }
             }
 //            graph.insertEdge(parent, null, String.valueOf(this.edgeCapacity[2][1])+"/"+String.valueOf(this.edgeCapacity[1][2]), vertexList.get(1), vertexList.get(2));
-            mxCircleLayout layout = new mxCircleLayout(graph);
+  /*          mxCircleLayout layout = new mxCircleLayout(graph);
             //layout.setLevelDistance(40);
             //layout.setNodeDistance(30);
             //layout.setEdgeRouting(false);
@@ -141,7 +141,7 @@ public class MxGraphSample {
             layout.setY0((DEFAULT_SIZE.height / 2.0) - radius);
             layout.setRadius(radius);
             layout.setMoveCircle(true);
-
+*/
             mxParallelEdgeLayout pLayout = new mxParallelEdgeLayout(graph);
             pLayout.execute(graph.getDefaultParent());
 
@@ -169,7 +169,7 @@ public class MxGraphSample {
         }
         graph.getModel().beginUpdate();
         try {
-            graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(tempCapacity[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red");
+            graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(tempCapacity[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red;fillColor=red");
             TimeUnit.SECONDS.sleep(2);
             graphComponent = new mxGraphComponent(graph);
             graphComponent.setFoldingEnabled(true);
