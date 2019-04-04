@@ -69,8 +69,6 @@ public class MxGraphSample {
                                 this.x = maxX / n;
                                 this.y = maxY / n;
                             }
-                            System.out.println("x : " + this.x+600);
-                            System.out.println("y : " + (this.y+600));
                             vertexList.add(graph.insertVertex(parent, "" + i + "", (char) (i + 96), this.x+600, this.y+600, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
                             this.y = this.y * 2;
                             this.x = this.x *2;
@@ -81,8 +79,6 @@ public class MxGraphSample {
                                 this.x = maxX / n;
                                 this.y = maxY / n;
                             }
-                            System.out.println("x : " + this.x +600);
-                            System.out.println("y : " + this.y);
                             vertexList.add(graph.insertVertex(parent, "" + i + "", (char) (i + 96), (this.x)+600, this.y, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
                         }
                     }
@@ -93,8 +89,6 @@ public class MxGraphSample {
                                 this.x = maxX / n;
                                 this.y = maxY / n;
                             }
-                            System.out.println("x : " + (this.x));
-                            System.out.println("y : " + (this.y+600));
                             vertexList.add(graph.insertVertex(parent, "" + i + "", Character.toString((char) (i + 96)), this.x, this.y+600, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
                             //this.x = this.x * 2;
                         }
@@ -104,8 +98,6 @@ public class MxGraphSample {
                                 this.x = maxX / n;
                                 this.y = maxY / n;
                             }
-                            System.out.println("x : " + this.x);
-                            System.out.println("y : " + this.y);
                             vertexList.add(graph.insertVertex(parent, "" + i + "", Character.toString((char) (i + 96)), this.x, this.y, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
                             //this.x = this.x * 2;
                         }
@@ -161,12 +153,12 @@ public class MxGraphSample {
 
     public void addEdge(int u, int v, int path_flow, int[][] rGraph) throws InterruptedException {
         int tempCapacity[][]= rGraph;
-        for(int i=0; i<numOfNodes; i++){
+       /* for(int i=0; i<numOfNodes; i++){
             for(int j=0; j<numOfNodes; j++){
                 System.out.println(tempCapacity[i][j]+ " ");
             }
             System.out.println(" ");
-        }
+        }*/
         graph.getModel().beginUpdate();
         try {
             graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(tempCapacity[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red;fillColor=red");

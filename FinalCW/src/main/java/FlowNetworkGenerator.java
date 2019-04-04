@@ -31,7 +31,7 @@ public class FlowNetworkGenerator extends JApplet{
         FlowNetworkGenerator flowNetworkGenerator = new FlowNetworkGenerator();
 
         flowNetworkGenerator.numOfNodes = flowNetworkGenerator.generateRandomNumber(6,12);
-        flowNetworkGenerator.numOfEdges= flowNetworkGenerator.generateRandomNumber(flowNetworkGenerator.numOfNodes-2,(flowNetworkGenerator.numOfNodes*(flowNetworkGenerator.numOfNodes-1))-(2*flowNetworkGenerator.numOfNodes)+3);
+        flowNetworkGenerator.numOfEdges= flowNetworkGenerator.generateRandomNumber(4,(flowNetworkGenerator.numOfNodes*(flowNetworkGenerator.numOfNodes-1))-(2*flowNetworkGenerator.numOfNodes)+3);
         flowNetworkGenerator.nodeNames = new char[flowNetworkGenerator.numOfNodes];
         flowNetworkGenerator.edge_u = new int[flowNetworkGenerator.numOfEdges];
         flowNetworkGenerator.edge_v = new int[flowNetworkGenerator.numOfEdges];

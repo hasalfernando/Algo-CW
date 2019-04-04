@@ -11,6 +11,8 @@ import org.jgrapht.graph.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 class FordFulkerson extends JApplet{
@@ -63,6 +65,11 @@ class FordFulkerson extends JApplet{
 
     // Returns tne maximum flow from s to t in the given graph
     int fordFulkerson(int[][] graph, int s, int t, int V, MxGraphSample drawnGraph) throws InterruptedException {
+
+        List<MxGraphSample> tempList = new ArrayList<MxGraphSample>();
+        List<Integer> tempU = new ArrayList<Integer>();
+        List<Integer> tempV = new ArrayList<Integer>();
+        List<Integer> pathFlow = new ArrayList<Integer>();
 
         //graphGenerator();
         this.V = V;
