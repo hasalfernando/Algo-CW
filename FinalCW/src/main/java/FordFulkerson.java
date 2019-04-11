@@ -72,7 +72,6 @@ class FordFulkerson extends JApplet{
         List<Integer> tempV = new ArrayList<Integer>();
         List<Integer> pathFlow = new ArrayList<Integer>();
 */
-        //graphGenerator();
         this.V = V;
         int u, v;
 
@@ -129,25 +128,6 @@ class FordFulkerson extends JApplet{
         //System.out.println("Visited " +t);
         // Return the overall flow
         return max_flow;
-    }
-
-    // Driver program to test above functions
-    public static void main (String[] args) throws Exception{
-
-        // Let us create a graph shown in the above example
-        int graph[][] =new int[][] {
-                {0, 16, 13,  0,  0,  0},
-                {0,  0, 10, 12,  0,  0},
-                {0,  4,  0,  0, 14,  0},
-                {0,  0,  9,  0,  0, 20},
-                {0,  0,  0,  7,  0,  4},
-                {0,  0,  0,  0,  0,  0}
-        };
-
-        FordFulkerson m = new FordFulkerson();
-
-        //System.out.println("The maximum possible flow is " + m.fordFulkerson(graph, 0, 5));
-
     }
 
 }
