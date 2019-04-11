@@ -18,7 +18,6 @@ import java.util.LinkedList;
 class FordFulkerson extends JApplet{
 
     private int V = 0; //Number of vertices in graph
-    private static final long serialVersionUID = 2202072534703043194L;
 
     private static final Dimension DEFAULT_SIZE = new Dimension(530, 320);
 
@@ -59,12 +58,12 @@ class FordFulkerson extends JApplet{
     // Returns tne maximum flow from s to t in the given graph
     int fordFulkerson(int[][] graph, int s, int t, int V, MxGraphSample drawnGraph) throws InterruptedException {
 
-        /*
+
         List<MxGraphSample> tempList = new ArrayList<MxGraphSample>();
         List<Integer> tempU = new ArrayList<Integer>();
         List<Integer> tempV = new ArrayList<Integer>();
         List<Integer> pathFlow = new ArrayList<Integer>();
-*/
+
         this.V = V;
         int u, v;
 
@@ -91,7 +90,23 @@ class FordFulkerson extends JApplet{
                 u = parent[v];
                 System.out.println(number+". Connecting "+u+" to "+v+" having a capacity of "+rGraph[u][v]);
                 System.out.println("---A flow of "+path_flow+ " is sent from "+u+" to "+v);
-                drawnGraph.addEdge(u,v,path_flow,rGraph);
+
+                //To visualize the flow starting from s node
+                if(u!=0){
+                    tempU.add(u);
+                    tempV.add(v);
+                    pathFlow.add(path_flow);
+                }
+                else {
+                    drawnGraph.addEdge(u, v, path_flow, rGraph);
+                    for(int i = tempU.size()-1; i>-1; i--) {
+                        drawnGraph.addEdge(tempU.get(i), tempV.get(i), pathFlow.get(i), rGraph);
+                    }
+                    tempU.clear();
+                    tempV.clear();
+                    pathFlow.clear();
+                }
+                
                 rGraph[u][v] -= path_flow;
                 rGraph[v][u] += path_flow;
                 System.out.println("------Available capacity from "+u+" to "+v+" = "+rGraph[u][v]);

@@ -60,22 +60,22 @@ public class MxGraphSample {
                 else {
                     if(i%2==0) {
                         if(lowerSList.contains(i)){
-                            if (this.x+600 > 1400) {
+                            if (this.x+800 > 1400) {
                                 n = n * 2;
                                 this.x = maxX / n;
                                 this.y = maxY / n;
                             }
-                            vertexList.add(graph.insertVertex(parent, "" + i + "", (char) (i + 96), this.x+600, this.y+600, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
+                            vertexList.add(graph.insertVertex(parent, "" + i + "", (char) (i + 96), this.x+800, this.y+600, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
                             this.y = this.y * 2;
                             this.x = this.x *2;
                         }
                         else {
-                            if ((this.x)+600 > 1400) {
+                            if ((this.x)+800 > 1400) {
                                 n = n * 2;
                                 this.x = maxX / n;
                                 this.y = maxY / n;
                             }
-                            vertexList.add(graph.insertVertex(parent, "" + i + "", (char) (i + 96), (this.x)+600, this.y, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
+                            vertexList.add(graph.insertVertex(parent, "" + i + "", (char) (i + 96), (this.x)+800, this.y, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
                         }
                     }
                     else {
@@ -149,36 +149,30 @@ public class MxGraphSample {
 
     public void addEdge(int u, int v, int path_flow, int[][] rGraph) throws InterruptedException {
         int tempCapacity[][]= rGraph;
-       /* for(int i=0; i<numOfNodes; i++){
-            for(int j=0; j<numOfNodes; j++){
-                System.out.println(tempCapacity[i][j]+ " ");
-            }
-            System.out.println(" ");
-        }*/
+
+
         graph.getModel().beginUpdate();
         try {
             TimeUnit.SECONDS.sleep(2);
-            Object[] edges = graph.getEdgesBetween(vertexList.get(u), vertexList.get(v));
+            Object[] edges = graph.getEdgesBetween(vertexList.get(u), vertexList.get(v), true);
 
             for( Object edge: edges) {
                 graph.getModel().remove( edge);
             }
             graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(tempCapacity[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red;fillColor=red");
-            graphComponent = new mxGraphComponent(graph);
-            graphComponent.setFoldingEnabled(true);
-            panel.setLayout(new BorderLayout());
-            panel.add(graphComponent, BorderLayout.CENTER);
-            frame.add(panel);
-            frame.setVisible(true);
         }
         finally {
             graph.getModel().endUpdate();
         }
 
+        graphComponent = new mxGraphComponent(graph);
+        graphComponent.setFoldingEnabled(true);
+        panel.setLayout(new BorderLayout());
+        panel.add(graphComponent, BorderLayout.CENTER);
+        frame.add(panel);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }
 
-
-    public static void main(String[] args) {
-       // creategraph();
-    }
 }
