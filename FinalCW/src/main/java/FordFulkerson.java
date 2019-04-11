@@ -106,7 +106,7 @@ class FordFulkerson extends JApplet{
                     tempV.clear();
                     pathFlow.clear();
                 }
-                
+
                 rGraph[u][v] -= path_flow;
                 rGraph[v][u] += path_flow;
                 System.out.println("------Available capacity from "+u+" to "+v+" = "+rGraph[u][v]);
