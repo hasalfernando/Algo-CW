@@ -157,8 +157,13 @@ public class MxGraphSample {
         }*/
         graph.getModel().beginUpdate();
         try {
-            graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(tempCapacity[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red;fillColor=red");
             TimeUnit.SECONDS.sleep(2);
+            Object[] edges = graph.getEdgesBetween(vertexList.get(u), vertexList.get(v));
+
+            for( Object edge: edges) {
+                graph.getModel().remove( edge);
+            }
+            graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(tempCapacity[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red;fillColor=red");
             graphComponent = new mxGraphComponent(graph);
             graphComponent.setFoldingEnabled(true);
             panel.setLayout(new BorderLayout());
