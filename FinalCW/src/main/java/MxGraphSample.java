@@ -49,15 +49,11 @@ public class MxGraphSample {
 
             for(int i = 0; i<numOfNodes; i++) {
                 if (i == 0) {
-                    System.out.println("x : "+this.x);
-                    System.out.println("y : "+this.y);
                     vertexList.add(graph.insertVertex(parent, "0", "s", this.x, y, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
                     this.x = (2400/n);
                     this.y = (1000/n);
                 }
                 else if (i == this.numOfNodes - 1) {
-                    System.out.println("x : "+1300);
-                    System.out.println("y : "+500);
                     vertexList.add(graph.insertVertex(parent, ""+i+"", "t", 1300, 500, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
 
                 }
