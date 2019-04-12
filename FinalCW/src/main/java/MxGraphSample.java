@@ -1,5 +1,6 @@
 import com.mxgraph.layout.mxParallelEdgeLayout;
 import com.mxgraph.swing.mxGraphComponent;
+import com.mxgraph.util.mxConstants;
 import com.mxgraph.view.mxGraph;
 
 import javax.swing.*;
@@ -26,6 +27,7 @@ public class MxGraphSample {
     final JFrame frame = new JFrame();
     JPanel panel = new JPanel();
     mxGraphComponent graphComponent = null;
+    JLabel maxFlowLabel = new JLabel();
 
     public void createGraph(int numOfNodes, int numOfEdges, int[][] edgeCapacity) {
 
@@ -38,9 +40,12 @@ public class MxGraphSample {
         this.lowerSList.add(7);
         this.lowerSList.add(8);
         frame.setSize(1500, 1000);
-        panel.setSize(frame.getMaximumSize().width,
-                frame.getMaximumSize().height);
+        panel.setSize(frame.getMaximumSize().width, frame.getMaximumSize().height);
 
+        graph.getStylesheet().getDefaultEdgeStyle().put(mxConstants.STYLE_FONTSIZE,16);
+        graph.getStylesheet().getDefaultEdgeStyle().put(mxConstants.STYLE_FONTCOLOR,"black");
+        graph.getStylesheet().getDefaultVertexStyle().put(mxConstants.STYLE_FONTSIZE,16);
+        graph.getStylesheet().getDefaultVertexStyle().put(mxConstants.STYLE_FONTCOLOR,"black");
 
         graph.getModel().beginUpdate();
         try {
@@ -58,22 +63,22 @@ public class MxGraphSample {
                 else {
                     if(i%2==0) {
                         if(lowerSList.contains(i)){
-                            if (this.x+800 > 1400) {
+                            if (this.x+900 > 1400) {
                                 n = n * 2;
                                 this.x = maxX / n;
                                 this.y = maxY / n;
                             }
-                            vertexList.add(graph.insertVertex(parent, "" + i + "", (char) (i + 96), this.x+800, this.y+600, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
+                            vertexList.add(graph.insertVertex(parent, "" + i + "", (char) (i + 96), this.x+900, this.y+600, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
                             this.y = this.y * 2;
                             this.x = this.x *2;
                         }
                         else {
-                            if ((this.x)+800 > 1400) {
+                            if ((this.x)+900 > 1400) {
                                 n = n * 2;
                                 this.x = maxX / n;
                                 this.y = maxY / n;
                             }
-                            vertexList.add(graph.insertVertex(parent, "" + i + "", (char) (i + 96), (this.x)+800, this.y, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
+                            vertexList.add(graph.insertVertex(parent, "" + i + "", (char) (i + 96), (this.x)+900, this.y, 50, 30,"ROUNDED;fillColor=lightgreen;fontColor=black"));
                         }
                     }
                     else {
@@ -172,10 +177,18 @@ public class MxGraphSample {
         graphComponent.setFoldingEnabled(true);
         panel.setLayout(new BorderLayout());
         panel.add(graphComponent, BorderLayout.CENTER);
+        maxFlowLabel.setText("Max Flow: "+String.valueOf(12));
+        panel.add(maxFlowLabel);
+        maxFlowLabel.setLocation(1400,300);
         frame.add(panel);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+    }
+
+    public void updateMaxFlow(int maxFlow){
+        frame.add(panel);
+        frame.setVisible(true);
     }
 
 }

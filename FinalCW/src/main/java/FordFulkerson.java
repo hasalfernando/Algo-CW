@@ -148,6 +148,7 @@ class FordFulkerson extends JApplet{
             }
 
             max_flow += path_flow;
+
         }
         return max_flow;
     }
