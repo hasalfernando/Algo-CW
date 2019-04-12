@@ -150,13 +150,13 @@ public class MxGraphSample {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void addEdge(int u, int v, int path_flow, int[][] rGraph, int[][] graphOriginal) throws InterruptedException {
-        int tempCapacity[][]= rGraph;
+    public void addEdge(int u, int v, int path_flow, int[][] graphOriginal) throws InterruptedException {
+        //int tempCapacity[][]= rGraph;
 
 
         graph.getModel().beginUpdate();
         try {
-            TimeUnit.SECONDS.sleep(2);
+            //TimeUnit.SECONDS.sleep(2);
             Object[] edges = graph.getEdgesBetween(vertexList.get(u), vertexList.get(v), true);
 
             for( Object edge: edges) {

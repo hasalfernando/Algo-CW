@@ -64,7 +64,7 @@ class FordFulkerson extends JApplet{
             }
         }
 
-        //Return once the last node (t node) has been visited
+        //Return whether the last node (t node) has been visited or not
         return (visited[t] == true);
     }
 
@@ -127,10 +127,10 @@ class FordFulkerson extends JApplet{
                 else {
                     rGraph[u][v] -= path_flow;
                     rGraph[v][u] += path_flow;
-                    drawnGraph.addEdge(u, v, rGraph[v][u], rGraph, graph);
+                    drawnGraph.addEdge(u, v, rGraph[v][u], graph);
 
                     for(int i = tempU.size()-1; i>-1; i--) {
-                        drawnGraph.addEdge(tempU.get(i), tempV.get(i), rGraph[tempV.get(i)][tempU.get(i)], tempCapacityList.get(i), graph);
+                        drawnGraph.addEdge(tempU.get(i), tempV.get(i), rGraph[tempV.get(i)][tempU.get(i)], graph);
 
                     }
                     tempU.clear();
