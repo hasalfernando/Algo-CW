@@ -145,7 +145,7 @@ public class MxGraphSample {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void addEdge(int u, int v, int path_flow, int[][] rGraph, int[][] graphx) throws InterruptedException {
+    public void addEdge(int u, int v, int path_flow, int[][] rGraph, int[][] graphOriginal) throws InterruptedException {
         int tempCapacity[][]= rGraph;
 
 
@@ -155,13 +155,13 @@ public class MxGraphSample {
             Object[] edges = graph.getEdgesBetween(vertexList.get(u), vertexList.get(v), true);
 
             for( Object edge: edges) {
-                graph.getModel().remove( edge);
+                graph.getModel().remove(edge);
             }
-            if(v==rGraph.length-1){
-                graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(graphx[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red;fillColor=red; fontSize=16;");
+            if(v==graphOriginal.length-1){
+                graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(graphOriginal[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red;fillColor=red;fontSize=16;");
             }
             else{
-                graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(graphx[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red;fillColor=red; fontSize=16;");
+                graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(graphOriginal[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red;fillColor=red; fontSize=16;");
             }
         }
         finally {
