@@ -8,6 +8,7 @@ import org.jgrapht.graph.DefaultListenableGraph;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Scanner;
 
 public class FlowNetworkGenerator extends JApplet{
 
@@ -29,27 +30,102 @@ public class FlowNetworkGenerator extends JApplet{
     public static void main(String[] args) throws InterruptedException {
 
         FlowNetworkGenerator flowNetworkGenerator = new FlowNetworkGenerator();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please select an option from the menu below to find the maximum flow\n1. Select my own number of nodes, edges and capacities\n2. Randomly generate a graph");
+        int selectedOption = sc.nextInt();
+        while(selectedOption!=1 && selectedOption!=2){
+            System.out.println("Your have entered a wrong input");
+            System.out.println("Please select an option from the menu below to find the maximum flow\n1. Select my own number of nodes, edges and capacities\n2. Randomly generate a graph");
+            selectedOption = sc.nextInt();
+        }
+        System.out.println("Please note that '0' is the starting node, which means s = 0");
+        if (selectedOption == 1) {
+            System.out.println("Please enter your preferred number of nodes");
+            flowNetworkGenerator.numOfNodes = sc.nextInt();
+            System.out.println("Please enter your preferred number of edges");
+            flowNetworkGenerator.numOfEdges = sc.nextInt();
+            flowNetworkGenerator.nodeNames = new char[flowNetworkGenerator.numOfNodes];
+            flowNetworkGenerator.edge_u = new int[flowNetworkGenerator.numOfEdges];
+            flowNetworkGenerator.edge_v = new int[flowNetworkGenerator.numOfEdges];
+            flowNetworkGenerator.edge_capacity = new int[flowNetworkGenerator.numOfNodes][flowNetworkGenerator.numOfNodes];
 
-        flowNetworkGenerator.numOfNodes = flowNetworkGenerator.generateRandomNumber(6,12);
-        flowNetworkGenerator.numOfEdges= flowNetworkGenerator.generateRandomNumber(4,(flowNetworkGenerator.numOfNodes*(flowNetworkGenerator.numOfNodes-1))-(2*flowNetworkGenerator.numOfNodes)+3);
-        flowNetworkGenerator.nodeNames = new char[flowNetworkGenerator.numOfNodes];
-        flowNetworkGenerator.edge_u = new int[flowNetworkGenerator.numOfEdges];
-        flowNetworkGenerator.edge_v = new int[flowNetworkGenerator.numOfEdges];
-        flowNetworkGenerator.edge_capacity = new int[flowNetworkGenerator.numOfNodes][flowNetworkGenerator.numOfNodes];
-        flowNetworkGenerator.tempForAugPath = flowNetworkGenerator.generateRandomNumber(1,flowNetworkGenerator.numOfNodes-2);
-        System.out.println("Number of Nodes(including s and t): "+ flowNetworkGenerator.numOfNodes);
-        System.out.println("Number of Edges: "+ flowNetworkGenerator.numOfEdges);
-        System.out.println("\n-------------------------");
-        System.out.println("| Connection | Capacity |");
-        System.out.println("-------------------------");
-        flowNetworkGenerator.assignNodeNames();
+            for (int i = 0; i < flowNetworkGenerator.numOfEdges; i++) {
+                int start = 0;
+                int end = 0;
+                int capacity = 0;
+                if (i == 0) {
+                    System.out.println("Please enter the starting node of your " + (i + 1) + "st edge");
+                    start = sc.nextInt();
+                    flowNetworkGenerator.edge_u[i] = start;
+                    System.out.println("Please enter the ending node of your " + (i + 1) + "st edge");
+                    end = sc.nextInt();
+                    flowNetworkGenerator.edge_v[i] = end;
+                    System.out.println("Please enter the capacity of your " + (i + 1) + "st edge");
+                    capacity = sc.nextInt();
+                    flowNetworkGenerator.edge_capacity[start][end] = capacity;
+                } else if (i == 1) {
+                    System.out.println("Please enter the starting node of your " + (i + 1) + "nd edge");
+                    start = sc.nextInt();
+                    flowNetworkGenerator.edge_u[i] = start;
+                    System.out.println("Please enter the ending node of your " + (i + 1) + "nd edge");
+                    end = sc.nextInt();
+                    flowNetworkGenerator.edge_v[i] = end;
+                    System.out.println("Please enter the capacity of your " + (i + 1) + "nd edge");
+                    capacity = sc.nextInt();
+                    flowNetworkGenerator.edge_capacity[start][end] = capacity;
+                } else if (i == 2) {
+                    System.out.println("Please enter the starting node of your " + (i + 1) + "rd edge");
+                    start = sc.nextInt();
+                    flowNetworkGenerator.edge_u[i] = start;
+                    System.out.println("Please enter the ending node of your " + (i + 1) + "rd edge");
+                    end = sc.nextInt();
+                    flowNetworkGenerator.edge_v[i] = end;
+                    System.out.println("Please enter the capacity of your " + (i + 1) + "rd edge");
+                    capacity = sc.nextInt();
+                    flowNetworkGenerator.edge_capacity[start][end] = capacity;
+                } else {
+                    System.out.println("Please enter the starting node of your " + (i + 1) + "th edge");
+                    start = sc.nextInt();
+                    flowNetworkGenerator.edge_u[i] = start;
+                    System.out.println("Please enter the ending node of your " + (i + 1) + "th edge");
+                    end = sc.nextInt();
+                    flowNetworkGenerator.edge_v[i] = end;
+                    System.out.println("Please enter the capacity of your " + (i + 1) + "th edge");
+                    capacity = sc.nextInt();
+                    flowNetworkGenerator.edge_capacity[start][end] = capacity;
+                }
+            }
+            System.out.println("Number of Nodes(including s and t): " + flowNetworkGenerator.numOfNodes);
+            System.out.println("Number of Edges: " + flowNetworkGenerator.numOfEdges);
+            System.out.println("\n-------------------------");
+            System.out.println("| Connection | Capacity |");
+            System.out.println("-------------------------");
+            flowNetworkGenerator.assignNodeNames();
+            flowNetworkGenerator.printEdgeCapacities();
+        }
+        else {
+            flowNetworkGenerator.numOfNodes = flowNetworkGenerator.generateRandomNumber(6, 12);
+            flowNetworkGenerator.numOfEdges = flowNetworkGenerator.generateRandomNumber(4, (flowNetworkGenerator.numOfNodes * (flowNetworkGenerator.numOfNodes - 1)) - (2 * flowNetworkGenerator.numOfNodes) + 3);
+            flowNetworkGenerator.nodeNames = new char[flowNetworkGenerator.numOfNodes];
+            flowNetworkGenerator.edge_u = new int[flowNetworkGenerator.numOfEdges];
+            flowNetworkGenerator.edge_v = new int[flowNetworkGenerator.numOfEdges];
+            flowNetworkGenerator.edge_capacity = new int[flowNetworkGenerator.numOfNodes][flowNetworkGenerator.numOfNodes];
+            flowNetworkGenerator.tempForAugPath = flowNetworkGenerator.generateRandomNumber(1, flowNetworkGenerator.numOfNodes - 2);
+            System.out.println("Number of Nodes(including s and t): " + flowNetworkGenerator.numOfNodes);
+            System.out.println("Number of Edges: " + flowNetworkGenerator.numOfEdges);
+            System.out.println("\n-------------------------");
+            System.out.println("| Connection | Capacity |");
+            System.out.println("-------------------------");
+            flowNetworkGenerator.assignNodeNames();
+            flowNetworkGenerator.generateNetwork();
+            flowNetworkGenerator.printEdgeCapacities();
+        }
+
 
 //        System.out.println("Node which connects source and sink: "+flowNetworkGenerator.tempForAugPath);
 
-        flowNetworkGenerator.generateNetwork();
 
 
-        flowNetworkGenerator.printEdgeCapacities();
 /*
         System.out.println("-----------------------");
         for(int i = 0; i<flowNetworkGenerator.numOfNodes; i++){

@@ -1,5 +1,3 @@
-import com.mxgraph.layout.mxCircleLayout;
-import com.mxgraph.layout.mxCompactTreeLayout;
 import com.mxgraph.layout.mxParallelEdgeLayout;
 import com.mxgraph.swing.mxGraphComponent;
 import com.mxgraph.view.mxGraph;
@@ -147,7 +145,7 @@ public class MxGraphSample {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void addEdge(int u, int v, int path_flow, int[][] rGraph) throws InterruptedException {
+    public void addEdge(int u, int v, int path_flow, int[][] rGraph, int[][] graphx) throws InterruptedException {
         int tempCapacity[][]= rGraph;
 
 
@@ -159,7 +157,12 @@ public class MxGraphSample {
             for( Object edge: edges) {
                 graph.getModel().remove( edge);
             }
-            graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(tempCapacity[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red;fillColor=red");
+            if(v==rGraph.length-1){
+                graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(graphx[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red;fillColor=red; fontSize=16;");
+            }
+            else{
+                graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(graphx[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red;fillColor=red; fontSize=16;");
+            }
         }
         finally {
             graph.getModel().endUpdate();

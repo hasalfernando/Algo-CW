@@ -59,7 +59,7 @@ class FordFulkerson extends JApplet{
     int fordFulkerson(int[][] graph, int s, int t, int V, MxGraphSample drawnGraph) throws InterruptedException {
 
 
-        List<MxGraphSample> tempList = new ArrayList<MxGraphSample>();
+        List<int[][]> tempCapacityList = new ArrayList<int[][]>();
         List<Integer> tempU = new ArrayList<Integer>();
         List<Integer> tempV = new ArrayList<Integer>();
         List<Integer> pathFlow = new ArrayList<Integer>();
@@ -69,9 +69,11 @@ class FordFulkerson extends JApplet{
 
         int rGraph[][] = new int[V][V];
 
-        for (u = 0; u < V; u++)
-            for (v = 0; v < V; v++)
+        for (u = 0; u < V; u++) {
+            for (v = 0; v < V; v++) {
                 rGraph[u][v] = graph[u][v];
+            }
+        }
 
         int parent[] = new int[V];
 
@@ -96,15 +98,17 @@ class FordFulkerson extends JApplet{
                     tempU.add(u);
                     tempV.add(v);
                     pathFlow.add(path_flow);
+                    tempCapacityList.add(rGraph);
                 }
                 else {
-                    drawnGraph.addEdge(u, v, path_flow, rGraph);
+                    drawnGraph.addEdge(u, v, path_flow, rGraph, graph);
                     for(int i = tempU.size()-1; i>-1; i--) {
-                        drawnGraph.addEdge(tempU.get(i), tempV.get(i), pathFlow.get(i), rGraph);
+                        drawnGraph.addEdge(tempU.get(i), tempV.get(i), pathFlow.get(i), tempCapacityList.get(i), graph);
                     }
                     tempU.clear();
                     tempV.clear();
                     pathFlow.clear();
+                    tempCapacityList.clear();
                 }
 
                 rGraph[u][v] -= path_flow;
