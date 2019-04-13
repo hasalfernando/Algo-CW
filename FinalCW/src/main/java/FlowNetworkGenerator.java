@@ -31,10 +31,36 @@ public class FlowNetworkGenerator extends JApplet{
         }
         System.out.println("Please note that '0' is the starting node, which means s = 0");
         if (selectedOption == 1) {
-            System.out.println("Please enter your preferred number of nodes");
+            System.out.println("Please enter your preferred number of nodes (starting node and ending node inclusive)");
+            while(!sc.hasNextInt()){
+                System.out.println("Please enter a valid integer");
+                sc.next();
+            }
             flowNetworkGenerator.numOfNodes = sc.nextInt();
+            while(!(6<=flowNetworkGenerator.numOfNodes) ||!(flowNetworkGenerator.numOfNodes<=12)){
+                System.out.println("Your have entered a wrong input");
+                System.out.println("Please enter a number between 6 to 12");
+                while(!sc.hasNextInt()){
+                    System.out.println("Please enter a valid integer");
+                    sc.next();
+                }
+                flowNetworkGenerator.numOfNodes = sc.nextInt();
+            }
             System.out.println("Please enter your preferred number of edges");
+            while(!sc.hasNextInt()){
+                System.out.println("Please enter a valid integer");
+                sc.next();
+            }
             flowNetworkGenerator.numOfEdges = sc.nextInt();
+            while(!(4<=flowNetworkGenerator.numOfEdges) ||!(flowNetworkGenerator.numOfEdges<=((flowNetworkGenerator.numOfNodes * (flowNetworkGenerator.numOfNodes - 1)) - (2 * flowNetworkGenerator.numOfNodes) + 3))){
+                System.out.println("Your have entered a wrong number of edges");
+                System.out.println("Please enter a number between "+4+" and "+((flowNetworkGenerator.numOfNodes * (flowNetworkGenerator.numOfNodes - 1)) - (2 * flowNetworkGenerator.numOfNodes) + 3));
+                while(!sc.hasNextInt()){
+                    System.out.println("Please enter a valid integer");
+                    sc.next();
+                }
+                flowNetworkGenerator.numOfEdges = sc.nextInt();
+            }
             flowNetworkGenerator.nodeNames = new char[flowNetworkGenerator.numOfNodes];
             flowNetworkGenerator.edge_u = new int[flowNetworkGenerator.numOfEdges];
             flowNetworkGenerator.edge_v = new int[flowNetworkGenerator.numOfEdges];
@@ -80,7 +106,7 @@ public class FlowNetworkGenerator extends JApplet{
         }
         else {
             flowNetworkGenerator.numOfNodes = flowNetworkGenerator.generateRandomNumber(6, 12);
-            flowNetworkGenerator.numOfEdges = flowNetworkGenerator.generateRandomNumber(4, (flowNetworkGenerator.numOfNodes * (flowNetworkGenerator.numOfNodes - 1)) - (2 * flowNetworkGenerator.numOfNodes) + 3);
+            flowNetworkGenerator.numOfEdges = flowNetworkGenerator.generateRandomNumber(4, ((flowNetworkGenerator.numOfNodes * (flowNetworkGenerator.numOfNodes - 1)) - (2 * flowNetworkGenerator.numOfNodes) + 3));
             flowNetworkGenerator.nodeNames = new char[flowNetworkGenerator.numOfNodes];
             flowNetworkGenerator.edge_u = new int[flowNetworkGenerator.numOfEdges];
             flowNetworkGenerator.edge_v = new int[flowNetworkGenerator.numOfEdges];
@@ -104,10 +130,11 @@ public class FlowNetworkGenerator extends JApplet{
         long startTime = System.currentTimeMillis();
 
         //Print calculated maximum flow on the console
-        System.out.println("\nThe maximum possible flow is " + m.fordFulkerson(flowNetworkGenerator.edge_capacity, 0, flowNetworkGenerator.numOfNodes-1, flowNetworkGenerator.numOfNodes,drawnGraph));
-
+        int maximumFlow = m.fordFulkerson(flowNetworkGenerator.edge_capacity, 0, flowNetworkGenerator.numOfNodes-1, flowNetworkGenerator.numOfNodes,drawnGraph);
+        System.out.println("\nThe maximum possible flow is " + maximumFlow);
         //Print the elapsed time
         System.out.println("Elapsed milli seconds: "+(System.currentTimeMillis()-startTime));
+        drawnGraph.updateMaxFlow(maximumFlow);
 
 
     }

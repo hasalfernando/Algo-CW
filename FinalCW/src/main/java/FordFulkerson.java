@@ -53,7 +53,7 @@ class FordFulkerson extends JApplet{
     }
 
     // Returns tne maximum flow from s to t in the given graph
-    int fordFulkerson(int[][] graph, int s, int t, int V, MxGraph drawnGraph) throws InterruptedException {
+    synchronized int fordFulkerson(int[][] graph, int s, int t, int V, MxGraph drawnGraph) throws InterruptedException {
 
         //Creating temporary lists to store the starting nodes, ending nodes, path flows and renewed capacity lists
         //To graphically represent a flow starting from node 's' (node 0)
@@ -84,7 +84,6 @@ class FordFulkerson extends JApplet{
 
         //Do flow generation while the last node can be visited
         while (bfs(rGraph, s, t, parent)){
-
             //Assign the maximum value to the path_flow variable on initialization
             int path_flow = Integer.MAX_VALUE;
 
@@ -131,12 +130,15 @@ class FordFulkerson extends JApplet{
 
             max_flow += path_flow;
             drawnGraph.updateMaxFlow(max_flow);
+
         }
-        drawnGraph.updateMaxFlow(max_flow);
-        for(int i = finalU.size()-1; i>-1; i--) {
-            drawnGraph.addEdge(finalU.get(i), finalV.get(i), (rGraph[finalV.get(i)][finalU.get(i)] - graph[finalV.get(i)][finalU.get(i)]), graph, "blue");
+        synchronized (drawnGraph) {
+            for (int i = 0; i < finalU.size(); i++) {
+                drawnGraph.addEdge(finalU.get(i), finalV.get(i), (rGraph[finalV.get(i)][finalU.get(i)] - graph[finalV.get(i)][finalU.get(i)]), graph, "blue");
+                //drawnGraph.updateMaxFlow(max_flow);
+            }
         }
-            return max_flow;
+        return max_flow;
 
     }
 
