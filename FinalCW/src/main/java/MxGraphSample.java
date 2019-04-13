@@ -21,7 +21,6 @@ public class MxGraphSample {
     private final int maxX = 1500;
     private int y = 500;
     private final int maxY = 1000;
-    private static final Dimension DEFAULT_SIZE = new Dimension(1500, 1000);
     final mxGraph graph = new mxGraph();
     Object parent = graph.getDefaultParent();
     final JFrame frame = new JFrame();
@@ -41,7 +40,8 @@ public class MxGraphSample {
         this.lowerSList.add(8);
         frame.setSize(1500, 1000);
         panel.setSize(frame.getMaximumSize().width, frame.getMaximumSize().height);
-
+        maxFlowLabel.setFont (maxFlowLabel.getFont ().deriveFont (20.0f));
+        maxFlowLabel.setText("Max Flow: ");
         graph.getStylesheet().getDefaultEdgeStyle().put(mxConstants.STYLE_FONTSIZE,16);
         graph.getStylesheet().getDefaultEdgeStyle().put(mxConstants.STYLE_FONTCOLOR,"black");
         graph.getStylesheet().getDefaultVertexStyle().put(mxConstants.STYLE_FONTSIZE,16);
@@ -145,6 +145,7 @@ public class MxGraphSample {
         graphComponent.setFoldingEnabled(true);
         panel.setLayout(new BorderLayout());
         panel.add(graphComponent, BorderLayout.CENTER);
+        panel.add(maxFlowLabel, BorderLayout.NORTH);
         frame.add(panel);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -177,9 +178,8 @@ public class MxGraphSample {
         graphComponent.setFoldingEnabled(true);
         panel.setLayout(new BorderLayout());
         panel.add(graphComponent, BorderLayout.CENTER);
-        maxFlowLabel.setText("Max Flow: "+String.valueOf(12));
-        panel.add(maxFlowLabel);
-        maxFlowLabel.setLocation(1400,300);
+        //maxFlowLabel.setText("Max Flow: ");
+        panel.add(maxFlowLabel, BorderLayout.NORTH);
         frame.add(panel);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -187,6 +187,9 @@ public class MxGraphSample {
     }
 
     public void updateMaxFlow(int maxFlow){
+        maxFlowLabel.setText("Max Flow: "+ maxFlow);
+        panel.add(maxFlowLabel);
+        panel.add(maxFlowLabel, BorderLayout.NORTH);
         frame.add(panel);
         frame.setVisible(true);
     }

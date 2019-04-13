@@ -212,16 +212,11 @@ public class FlowNetworkGenerator extends JApplet{
         }
 
     }
-    private int capacityGenerator() {
-        return (int) ((Math.random() * 20) + 5);
-    }
 
+    //Connect two edges by adding a capacity
     private void connect(int u, int v){
-        //connected[u][v] = 1;
-        edge_capacity[u][v] = capacityGenerator();
+        edge_capacity[u][v] = (int) ((Math.random() * 20) + 5);
 
-
-        //System.out.println(u+" to "+v+" connected");
     }
 
     private boolean isConnected(int u, int v){

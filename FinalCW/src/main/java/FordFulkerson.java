@@ -144,9 +144,11 @@ class FordFulkerson extends JApplet{
             }
 
             max_flow += path_flow;
-
+            drawnGraph.updateMaxFlow(max_flow);
         }
+        drawnGraph.updateMaxFlow(max_flow);
         return max_flow;
+
     }
 
 }
