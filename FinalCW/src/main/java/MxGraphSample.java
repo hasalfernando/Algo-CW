@@ -156,7 +156,7 @@ public class MxGraphSample {
 
         graph.getModel().beginUpdate();
         try {
-            //TimeUnit.SECONDS.sleep(3);
+            TimeUnit.SECONDS.sleep(3);
             Object[] edges = graph.getEdgesBetween(vertexList.get(u), vertexList.get(v), true);
 
             for( Object edge: edges) {
