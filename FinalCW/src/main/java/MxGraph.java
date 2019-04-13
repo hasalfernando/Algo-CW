@@ -33,6 +33,8 @@ public class MxGraph {
         this.numOfNodes = numOfNodes;
         this.numOfEdges = numOfEdges;
         this.edgeCapacity = edgeCapacity;
+
+        //Used in placing nodes in the frame
         int n =(this.numOfNodes-2);
         this.lowerSList.add(3);
         this.lowerSList.add(4);
@@ -122,11 +124,11 @@ public class MxGraph {
             graph.getModel().endUpdate();
         }
 
+        panel.add(infoLabel, BorderLayout.NORTH);
         graphComponent = new mxGraphComponent(graph);
         graphComponent.setFoldingEnabled(true);
         panel.setLayout(new BorderLayout());
         panel.add(graphComponent, BorderLayout.CENTER);
-        panel.add(infoLabel, BorderLayout.NORTH);
         panel.add(maxFlowLabel, BorderLayout.NORTH);
         frame.add(panel);
         frame.setVisible(true);
@@ -146,9 +148,7 @@ public class MxGraph {
             graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(graphOriginal[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor="+color+";fillColor="+color+";");
             pLayout.execute(graph.getDefaultParent());
         }
-        catch (NullPointerException e){
 
-        }
         finally {
             graph.getModel().endUpdate();
         }
@@ -161,8 +161,6 @@ public class MxGraph {
         panel.add(maxFlowLabel, BorderLayout.NORTH);
         panel.add(infoLabel, BorderLayout.NORTH);
         frame.add(panel);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 
