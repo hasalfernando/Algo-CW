@@ -2,8 +2,12 @@ import com.mxgraph.layout.mxParallelEdgeLayout;
 import com.mxgraph.swing.mxGraphComponent;
 import com.mxgraph.util.mxConstants;
 import com.mxgraph.view.mxGraph;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -28,31 +32,31 @@ public class MxGraph {
     private JLabel infoLabel = new JLabel();
     private mxParallelEdgeLayout pLayout;
 
-    public void createGraph(int numOfNodes, int numOfEdges, int[][] edgeCapacity) {
+    public void createGraph(int numOfNodes, int numOfEdges, int[][] edgeCapacity){
 
         this.numOfNodes = numOfNodes;
         this.numOfEdges = numOfEdges;
         this.edgeCapacity = edgeCapacity;
-
         //Used in placing nodes in the frame
         int n =(this.numOfNodes-2);
         this.lowerSList.add(3);
         this.lowerSList.add(4);
         this.lowerSList.add(7);
         this.lowerSList.add(8);
+
         frame.setSize(1500, 1000);
         panel.setSize(frame.getMaximumSize().width, frame.getMaximumSize().height);
         maxFlowLabel.setHorizontalAlignment(JLabel.CENTER);
         infoLabel.setHorizontalAlignment(JLabel.LEFT);
-        maxFlowLabel.setFont (maxFlowLabel.getFont ().deriveFont (20.0f));
+        maxFlowLabel.setFont (maxFlowLabel.getFont().deriveFont(20.0f));
         maxFlowLabel.setText("Max Flow: ");
         infoLabel.setText("<html>Usual Flow : <font color='red'>Red</font> &nbsp; Last Flow : <font color='blue'> Blue</font></html>");
-        infoLabel.setFont (infoLabel.getFont ().deriveFont (20.0f));
+        infoLabel.setFont (infoLabel.getFont().deriveFont(20.0f));
         graph.getStylesheet().getDefaultEdgeStyle().put(mxConstants.STYLE_FONTSIZE,16);
         graph.getStylesheet().getDefaultEdgeStyle().put(mxConstants.STYLE_FONTCOLOR,"black");
         graph.getStylesheet().getDefaultVertexStyle().put(mxConstants.STYLE_FONTSIZE,16);
         graph.getStylesheet().getDefaultVertexStyle().put(mxConstants.STYLE_FONTCOLOR,"black");
-
+        frame.getContentPane().addMouseMotionListener(null);
         graph.getModel().beginUpdate();
         try {
 
@@ -126,7 +130,10 @@ public class MxGraph {
 
         panel.add(infoLabel, BorderLayout.NORTH);
         graphComponent = new mxGraphComponent(graph);
-        graphComponent.setFoldingEnabled(true);
+        graphComponent.setConnectable(false);
+        graphComponent.setFoldingEnabled(false);
+        graphComponent.setDragEnabled(false);
+
         panel.setLayout(new BorderLayout());
         panel.add(graphComponent, BorderLayout.CENTER);
         panel.add(maxFlowLabel, BorderLayout.NORTH);
@@ -136,7 +143,6 @@ public class MxGraph {
     }
 
     public synchronized void addEdge(int u, int v, int path_flow, int[][] graphOriginal, String color) {
-
         graph.getModel().beginUpdate();
         try {
             //TimeUnit.SECONDS.sleep(1);
@@ -155,13 +161,14 @@ public class MxGraph {
 
 
         graphComponent = new mxGraphComponent(graph);
-        graphComponent.setFoldingEnabled(true);
+        graphComponent.setFoldingEnabled(false);
+        graphComponent.setDragEnabled(false);
+        graphComponent.setConnectable(false);
         panel.setLayout(new BorderLayout());
         panel.add(graphComponent, BorderLayout.CENTER);
         panel.add(maxFlowLabel, BorderLayout.NORTH);
         panel.add(infoLabel, BorderLayout.NORTH);
         frame.add(panel);
-
     }
 
     public synchronized void updateMaxFlow(int maxFlow){

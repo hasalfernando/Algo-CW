@@ -1,9 +1,8 @@
-import javax.swing.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-class MaxFlowFinder extends JApplet{
+public class MaxFlowFinder {
 
     private int V = 0; //Number of vertices in graph
 
@@ -11,7 +10,7 @@ class MaxFlowFinder extends JApplet{
     private static int number = 1;
 
 
-    boolean bfs(int rGraph[][], int startingNode, int endingNode, int parent[]){
+    private boolean searchBreadthFirst(int rGraph[][], int startingNode, int endingNode, int parent[]){
 
         //Visited array for the length of one dimension of the 2D array
         boolean visited[] = new boolean[V];
@@ -53,7 +52,7 @@ class MaxFlowFinder extends JApplet{
     }
 
     // Returns tne maximum flow from s to t in the given graph
-    synchronized int fordFulkerson(int[][] graph, int s, int t, int V, MxGraph drawnGraph) throws InterruptedException {
+    public synchronized int fordFulkerson(int[][] graph, int s, int t, int V, MxGraph drawnGraph) throws InterruptedException {
 
         //Creating temporary lists to store the starting nodes, ending nodes, path flows and renewed capacity lists
         //To graphically represent a flow starting from node 's' (node 0)
@@ -83,7 +82,7 @@ class MaxFlowFinder extends JApplet{
         int max_flow = 0;
 
         //Do flow generation while the last node can be visited
-        while (bfs(rGraph, s, t, parent)){
+        while (searchBreadthFirst(rGraph, s, t, parent)){
             //Assign the maximum value to the path_flow variable on initialization
             int path_flow = Integer.MAX_VALUE;
 
