@@ -1,10 +1,7 @@
 import org.jgrapht.ext.JGraphXAdapter;
 import org.jgrapht.graph.DefaultEdge;
-
 import javax.swing.*;
 import java.awt.*;
-import java.sql.Date;
-import java.sql.Time;
 import java.util.Scanner;
 
 public class FlowNetworkGenerator extends JApplet{
@@ -14,15 +11,6 @@ public class FlowNetworkGenerator extends JApplet{
     private int[] edge_u;
     private int[] edge_v;
     private int[][] edge_capacity;
-
-    private static final long serialVersionUID = 2202072534703043194L;
-
-    private static final Dimension DEFAULT_SIZE = new Dimension(530, 320);
-
-    private JGraphXAdapter<String, DefaultEdge> jgxAdapter;
-    private static int number = 1;
-
-    //private int[][] connected = new int[numOfNodes][numOfNodes];
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -105,11 +93,15 @@ public class FlowNetworkGenerator extends JApplet{
 
 
         MxGraph drawnGraph = flowNetworkGenerator.graphGenerator();
-
         FordFulkerson m = new FordFulkerson();
 
+        //Get the time to calculate the elapsed time at the end
         long startTime = System.currentTimeMillis();
+
+        //Print calculated maximum flow on the console
         System.out.println("\nThe maximum possible flow is " + m.fordFulkerson(flowNetworkGenerator.edge_capacity, 0, flowNetworkGenerator.numOfNodes-1, flowNetworkGenerator.numOfNodes,drawnGraph));
+
+        //Print the elapsed time
         System.out.println("Elapsed time: "+(System.currentTimeMillis()-startTime));
 
 
@@ -145,12 +137,12 @@ public class FlowNetworkGenerator extends JApplet{
         return (int)(Math.random()*(max-min+1))+min;
     }
 
+    //Print the capacities of edges in a table, on the console
     private void printEdgeCapacities(){
         for (int i = 0; i<edge_u.length; i++) {
             System.out.print("|   "+nodeNames[edge_u[i]] + " -> ");
             System.out.print(nodeNames[edge_v[i]] + "   | ");
             System.out.printf("   %02d    |\n", edge_capacity[edge_u[i]][edge_v[i]]);
-            //System.out.print(edge_capacity[edge_u[i]][edge_v[i]] + " |\n");
             System.out.println("-------------------------");
         }
         System.out.println("\nSteps to search the maximum flow:\n");
@@ -160,15 +152,12 @@ public class FlowNetworkGenerator extends JApplet{
         for(int i=0; i<numOfNodes; i++){
             if(i==0){
                 nodeNames[i]='s';
-                //System.out.println(i+" is "+nodeNames[i]);
             }
             else if(i==numOfNodes-1){
                 nodeNames[i]='t';
-                //System.out.println(i+" is "+nodeNames[i]);
             }
             else{
                 nodeNames[i]=(char)(i+96);
-                //System.out.println(i+" is "+nodeNames[i]);
             }
         }
 
@@ -180,25 +169,17 @@ public class FlowNetworkGenerator extends JApplet{
 
     }
 
+    //Check whether there is a capacity for the certain edge and return boolean
     private boolean isConnected(int u, int v){
         return edge_capacity[u][v] > 0;
     }
 
+    //Generate the graph with correct number of nodes and edges before any flow
     public MxGraph graphGenerator(){
 
         MxGraph applet = new MxGraph();
         applet.createGraph(this.numOfNodes,this.numOfEdges, this.edge_capacity);
         return applet;
-/*       JGraphAdapterDemo applet = new JGraphAdapterDemo(this.numOfNodes,this.numOfEdges, this.edge_capacity);
-        applet.init();
-
-        JFrame frame = new JFrame();
-        frame.getContentPane().add(applet);
-        frame.setTitle("Flow Network Representation");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-*/
     }
 
 }
