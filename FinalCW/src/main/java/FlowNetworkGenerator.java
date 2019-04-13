@@ -51,47 +51,31 @@ public class FlowNetworkGenerator extends JApplet{
                 int start = 0;
                 int end = 0;
                 int capacity = 0;
-                if (i == 0) {
-                    System.out.println("Please enter the starting node of your " + (i + 1) + "st edge");
-                    start = sc.nextInt();
-                    flowNetworkGenerator.edge_u[i] = start;
-                    System.out.println("Please enter the ending node of your " + (i + 1) + "st edge");
-                    end = sc.nextInt();
-                    flowNetworkGenerator.edge_v[i] = end;
-                    System.out.println("Please enter the capacity of your " + (i + 1) + "st edge");
-                    capacity = sc.nextInt();
-                    flowNetworkGenerator.edge_capacity[start][end] = capacity;
-                } else if (i == 1) {
-                    System.out.println("Please enter the starting node of your " + (i + 1) + "nd edge");
-                    start = sc.nextInt();
-                    flowNetworkGenerator.edge_u[i] = start;
-                    System.out.println("Please enter the ending node of your " + (i + 1) + "nd edge");
-                    end = sc.nextInt();
-                    flowNetworkGenerator.edge_v[i] = end;
-                    System.out.println("Please enter the capacity of your " + (i + 1) + "nd edge");
-                    capacity = sc.nextInt();
-                    flowNetworkGenerator.edge_capacity[start][end] = capacity;
-                } else if (i == 2) {
-                    System.out.println("Please enter the starting node of your " + (i + 1) + "rd edge");
-                    start = sc.nextInt();
-                    flowNetworkGenerator.edge_u[i] = start;
-                    System.out.println("Please enter the ending node of your " + (i + 1) + "rd edge");
-                    end = sc.nextInt();
-                    flowNetworkGenerator.edge_v[i] = end;
-                    System.out.println("Please enter the capacity of your " + (i + 1) + "rd edge");
-                    capacity = sc.nextInt();
-                    flowNetworkGenerator.edge_capacity[start][end] = capacity;
-                } else {
-                    System.out.println("Please enter the starting node of your " + (i + 1) + "th edge");
-                    start = sc.nextInt();
-                    flowNetworkGenerator.edge_u[i] = start;
-                    System.out.println("Please enter the ending node of your " + (i + 1) + "th edge");
-                    end = sc.nextInt();
-                    flowNetworkGenerator.edge_v[i] = end;
-                    System.out.println("Please enter the capacity of your " + (i + 1) + "th edge");
-                    capacity = sc.nextInt();
-                    flowNetworkGenerator.edge_capacity[start][end] = capacity;
+                String ordinalIndicator;
+
+                switch (i){
+                    case 0:
+                        ordinalIndicator = "st";
+                        break;
+                    case 1:
+                        ordinalIndicator = "nd";
+                        break;
+                    case 2:
+                        ordinalIndicator = "rd";
+                        break;
+                    default:
+                        ordinalIndicator = "th";
                 }
+                System.out.println("Please enter the starting node of your " + (i + 1) + ordinalIndicator+" edge");
+                start = sc.nextInt();
+                flowNetworkGenerator.edge_u[i] = start;
+                System.out.println("Please enter the ending node of your " + (i + 1) + ordinalIndicator+" edge");
+                end = sc.nextInt();
+                flowNetworkGenerator.edge_v[i] = end;
+                System.out.println("Please enter the capacity of your " + (i + 1) + ordinalIndicator+" edge");
+                capacity = sc.nextInt();
+                flowNetworkGenerator.edge_capacity[start][end] = capacity;
+
             }
             System.out.println("Number of Nodes(including s and t): " + flowNetworkGenerator.numOfNodes);
             System.out.println("Number of Edges: " + flowNetworkGenerator.numOfEdges);
@@ -120,24 +104,6 @@ public class FlowNetworkGenerator extends JApplet{
         }
 
 
-/*
-        System.out.println("-----------------------");
-        for(int i = 0; i<flowNetworkGenerator.numOfNodes; i++){
-            for(int j = 0; j<flowNetworkGenerator.numOfNodes; j++) {
-                System.out.print(flowNetworkGenerator.connected[i][j]+" ");
-            }
-            System.out.println(" ");
-        }
-
-        System.out.println("-----------------------");
-        System.out.println("Capacity Matrix");
-        for(int i = 0; i< flowNetworkGenerator.numOfNodes; i++){
-            for(int j = 0; j< flowNetworkGenerator.numOfNodes; j++) {
-                System.out.printf("%02d ", flowNetworkGenerator.edge_capacity[i][j]);
-            }
-            System.out.println(" ");
-        }
-*/
         MxGraph drawnGraph = flowNetworkGenerator.graphGenerator();
 
         FordFulkerson m = new FordFulkerson();
