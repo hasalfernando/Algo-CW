@@ -1,5 +1,3 @@
-// Java program for implementation of Ford Fulkerson algorithm
-
 import org.jgrapht.ext.JGraphXAdapter;
 import org.jgrapht.graph.DefaultEdge;
 
@@ -114,6 +112,8 @@ class FordFulkerson extends JApplet{
                 u = parent[v];
                 System.out.println(number+". Connecting "+u+" to "+v+" having a capacity of "+rGraph[u][v]);
                 System.out.println("---A flow of "+path_flow+ " is sent from "+u+" to "+v);
+                rGraph[u][v] -= path_flow;
+                rGraph[v][u] += path_flow;
 
                 //To visualize the flow starting from s node
                 if(u!=0){
@@ -121,16 +121,12 @@ class FordFulkerson extends JApplet{
                     tempV.add(v);
                     pathFlow.add(path_flow);
                     tempCapacityList.add(rGraph);
-                    rGraph[u][v] -= path_flow;
-                    rGraph[v][u] += path_flow;
                 }
                 else {
-                    rGraph[u][v] -= path_flow;
-                    rGraph[v][u] += path_flow;
-                    drawnGraph.addEdge(u, v, rGraph[v][u], graph);
+                    drawnGraph.addEdge(u, v, (rGraph[v][u]-graph[v][u]), graph);
 
                     for(int i = tempU.size()-1; i>-1; i--) {
-                        drawnGraph.addEdge(tempU.get(i), tempV.get(i), rGraph[tempV.get(i)][tempU.get(i)], graph);
+                        drawnGraph.addEdge(tempU.get(i), tempV.get(i), (rGraph[tempV.get(i)][tempU.get(i)]-graph[tempV.get(i)][tempU.get(i)]), graph);
 
                     }
                     tempU.clear();
