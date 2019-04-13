@@ -131,7 +131,7 @@ public class MxGraph {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    void addEdge(int u, int v, int path_flow, int[][] graphOriginal) throws InterruptedException {
+    void addEdge(int u, int v, int path_flow, int[][] graphOriginal, String color) throws InterruptedException {
         //int tempCapacity[][]= rGraph;
 
 
@@ -144,10 +144,10 @@ public class MxGraph {
                 graph.getModel().remove(edge);
             }
             if(v==graphOriginal.length-1){
-                graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(graphOriginal[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red;fillColor=red;");
+                graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(graphOriginal[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor="+color+";fillColor="+color+";");
             }
             else{
-                graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(graphOriginal[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor=red;fillColor=red;");
+                graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(graphOriginal[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor="+color+";fillColor="+color+";");
             }
             pLayout.execute(graph.getDefaultParent());
         }
@@ -164,8 +164,6 @@ public class MxGraph {
         frame.add(panel);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
     }
 
     public void updateMaxFlow(int maxFlow){

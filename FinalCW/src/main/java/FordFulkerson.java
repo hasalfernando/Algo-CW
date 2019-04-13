@@ -57,10 +57,11 @@ class FordFulkerson extends JApplet{
 
         //Creating temporary lists to store the starting nodes, ending nodes, path flows and renewed capacity lists
         //To graphically represent a flow starting from node 's' (node 0)
-        List<int[][]> tempCapacityList = new ArrayList<int[][]>();
+
         List<Integer> tempU = new ArrayList<Integer>();
         List<Integer> tempV = new ArrayList<Integer>();
-        List<Integer> pathFlow = new ArrayList<Integer>();
+        List<Integer> finalU = new ArrayList<Integer>();
+        List<Integer> finalV = new ArrayList<Integer>();
 
         //Length of one dimension of the 2D capacity array
         this.V = V;
@@ -103,22 +104,23 @@ class FordFulkerson extends JApplet{
 
                 //To visualize the flow starting from s node
                 if(u!=0){
+                    finalU.clear();
+                    finalV.clear();
                     tempU.add(u);
                     tempV.add(v);
-                    pathFlow.add(path_flow);
-                    tempCapacityList.add(rGraph);
                 }
                 else {
-                    drawnGraph.addEdge(u, v, (rGraph[v][u]-graph[v][u]), graph);
-
+                    drawnGraph.addEdge(u, v, (rGraph[v][u]-graph[v][u]), graph,"red");
+                    finalU.add(u);
+                    finalV.add(v);
                     for(int i = tempU.size()-1; i>-1; i--) {
-                        drawnGraph.addEdge(tempU.get(i), tempV.get(i), (rGraph[tempV.get(i)][tempU.get(i)]-graph[tempV.get(i)][tempU.get(i)]), graph);
-
+                        drawnGraph.addEdge(tempU.get(i), tempV.get(i), (rGraph[tempV.get(i)][tempU.get(i)]-graph[tempV.get(i)][tempU.get(i)]), graph, "red");
+                        finalU.add(tempU.get(i));
+                        finalV.add(tempV.get(i));
                     }
+
                     tempU.clear();
                     tempV.clear();
-                    pathFlow.clear();
-                    tempCapacityList.clear();
                 }
 
                 System.out.println("------Available capacity from "+u+" to "+v+" = "+rGraph[u][v]);
@@ -131,7 +133,10 @@ class FordFulkerson extends JApplet{
             drawnGraph.updateMaxFlow(max_flow);
         }
         drawnGraph.updateMaxFlow(max_flow);
-        return max_flow;
+        for(int i = finalU.size()-1; i>-1; i--) {
+            drawnGraph.addEdge(finalU.get(i), finalV.get(i), (rGraph[finalV.get(i)][finalU.get(i)] - graph[finalV.get(i)][finalU.get(i)]), graph, "blue");
+        }
+            return max_flow;
 
     }
 
