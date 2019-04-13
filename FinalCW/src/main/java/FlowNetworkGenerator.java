@@ -1,7 +1,4 @@
-import org.jgrapht.ext.JGraphXAdapter;
-import org.jgrapht.graph.DefaultEdge;
 import javax.swing.*;
-import java.awt.*;
 import java.util.Scanner;
 
 public class FlowNetworkGenerator extends JApplet{
@@ -18,10 +15,18 @@ public class FlowNetworkGenerator extends JApplet{
         FlowNetworkGenerator flowNetworkGenerator = new FlowNetworkGenerator();
         Scanner sc = new Scanner(System.in);
         System.out.println("Please select an option from the menu below to find the maximum flow\n1. Select my own number of nodes, edges and capacities\n2. Randomly generate a graph");
+        while(!sc.hasNextInt()){
+            System.out.println("Please enter a valid integer");
+            sc.next();
+        }
         int selectedOption = sc.nextInt();
         while(selectedOption!=1 && selectedOption!=2){
             System.out.println("Your have entered a wrong input");
             System.out.println("Please select an option from the menu below to find the maximum flow\n1. Select my own number of nodes, edges and capacities\n2. Randomly generate a graph");
+            while(!sc.hasNextInt()){
+                System.out.println("Please enter a valid integer");
+                sc.next();
+            }
             selectedOption = sc.nextInt();
         }
         System.out.println("Please note that '0' is the starting node, which means s = 0");
@@ -102,7 +107,7 @@ public class FlowNetworkGenerator extends JApplet{
         System.out.println("\nThe maximum possible flow is " + m.fordFulkerson(flowNetworkGenerator.edge_capacity, 0, flowNetworkGenerator.numOfNodes-1, flowNetworkGenerator.numOfNodes,drawnGraph));
 
         //Print the elapsed time
-        System.out.println("Elapsed time: "+(System.currentTimeMillis()-startTime));
+        System.out.println("Elapsed milli seconds: "+(System.currentTimeMillis()-startTime));
 
 
     }
