@@ -124,7 +124,7 @@ public class FlowNetworkGenerator extends JApplet{
 
 
         MxGraph drawnGraph = flowNetworkGenerator.graphGenerator();
-        FordFulkerson m = new FordFulkerson();
+        MaxFlowFinder m = new MaxFlowFinder();
 
         //Get the time to calculate the elapsed time at the end
         long startTime = System.currentTimeMillis();
@@ -134,8 +134,8 @@ public class FlowNetworkGenerator extends JApplet{
         System.out.println("\nThe maximum possible flow is " + maximumFlow);
         //Print the elapsed time
         System.out.println("Elapsed milli seconds: "+(System.currentTimeMillis()-startTime));
+        //TimeUnit.MILLISECONDS.sleep(400);
         drawnGraph.updateMaxFlow(maximumFlow);
-
 
     }
 

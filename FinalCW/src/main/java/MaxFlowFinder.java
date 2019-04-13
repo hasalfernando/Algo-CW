@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-class FordFulkerson extends JApplet{
+class MaxFlowFinder extends JApplet{
 
     private int V = 0; //Number of vertices in graph
 
@@ -129,7 +129,7 @@ class FordFulkerson extends JApplet{
             }
 
             max_flow += path_flow;
-            drawnGraph.updateMaxFlow(max_flow);
+            //drawnGraph.updateMaxFlow(max_flow);
 
         }
         synchronized (drawnGraph) {

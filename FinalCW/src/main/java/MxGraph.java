@@ -133,7 +133,7 @@ public class MxGraph {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public synchronized void addEdge(int u, int v, int path_flow, int[][] graphOriginal, String color) throws InterruptedException {
+    public synchronized void addEdge(int u, int v, int path_flow, int[][] graphOriginal, String color) {
 
         graph.getModel().beginUpdate();
         try {
@@ -146,9 +146,13 @@ public class MxGraph {
             graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(graphOriginal[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor="+color+";fillColor="+color+";");
             pLayout.execute(graph.getDefaultParent());
         }
+        catch (NullPointerException e){
+
+        }
         finally {
             graph.getModel().endUpdate();
         }
+
 
         graphComponent = new mxGraphComponent(graph);
         graphComponent.setFoldingEnabled(true);
@@ -159,6 +163,7 @@ public class MxGraph {
         frame.add(panel);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }
 
     public synchronized void updateMaxFlow(int maxFlow){

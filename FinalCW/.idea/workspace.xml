@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42e57697-b6a5-471c-b9f9-6e2ac171c0eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/HelloWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FlowNetworkGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FlowNetworkGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FordFulkerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FordFulkerson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/JGraphAdapterDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FordFulkerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MaxFlowFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MxGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MxGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/FordFulkerson.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/FordFulkerson.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/JGraphAdapterDemo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MxGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MxGraph.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -53,8 +47,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9302" />
-          <entry key="PLAIN_TEXT" value="15" />
+          <entry key="JAVA" value="9346" />
+          <entry key="PLAIN_TEXT" value="28" />
           <entry key="XML" value="53" />
         </counts>
       </usages-collector>
@@ -77,11 +71,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/FlowNetworkGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2034">
-              <caret line="76" column="48" lean-forward="true" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
+            <state relative-caret-position="306">
+              <caret line="126" column="16" selection-start-line="126" selection-start-column="16" selection-end-line="126" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#7767#7768#0" expanded="true" />
@@ -93,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/FordFulkerson.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/MaxFlowFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-150">
-              <caret line="114" column="60" lean-forward="true" selection-start-line="114" selection-start-column="60" selection-end-line="114" selection-end-column="60" />
+            <state relative-caret-position="62">
+              <caret line="100" column="35" selection-start-line="100" selection-start-column="35" selection-end-line="100" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MxGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-317">
-              <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+            <state relative-caret-position="2533">
+              <caret line="149" selection-start-line="149" selection-end-line="149" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -158,9 +152,10 @@
         <option value="$PROJECT_DIR$/src/main/java/MxGraphSample.java" />
         <option value="$PROJECT_DIR$/src/main/java/JGraphAdapterDemo.java" />
         <option value="$PROJECT_DIR$/src/main/java/HelloWorld.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MxGraph.java" />
-        <option value="$PROJECT_DIR$/src/main/java/FordFulkerson.java" />
         <option value="$PROJECT_DIR$/src/main/java/FlowNetworkGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FordFulkerson.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MxGraph.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MaxFlowFinder.java" />
       </list>
     </option>
   </component>
@@ -229,7 +224,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555158469290" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555167058862" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -325,12 +320,12 @@
       <workItem from="1554968713079" duration="9166000" />
       <workItem from="1555039262318" duration="49219000" />
       <workItem from="1555154068080" duration="4423000" />
-      <workItem from="1555158539530" duration="6928000" />
+      <workItem from="1555158539530" duration="8492000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150690000" />
+    <option name="totallyTimeSpent" value="152254000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -343,8 +338,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49874055" weight="0.20134228" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49874055" visible="true" weight="0.20134228" />
       <window_info id="Structure" order="1" sideWeight="0.50125945" side_tool="true" weight="0.19597316" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -353,7 +349,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.50125945" side_tool="true" weight="0.19597316" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.27659574" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.15319149" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -468,20 +464,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/FordFulkerson.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150">
-          <caret line="114" column="60" lean-forward="true" selection-start-line="114" selection-start-column="60" selection-end-line="114" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MxGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-317">
-          <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+        <state relative-caret-position="2533">
+          <caret line="149" selection-start-line="149" selection-end-line="149" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -490,14 +476,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/FlowNetworkGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2034">
-          <caret line="76" column="48" lean-forward="true" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
+        <state relative-caret-position="306">
+          <caret line="126" column="16" selection-start-line="126" selection-start-column="16" selection-end-line="126" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#7767#7768#0" expanded="true" />
             <element signature="e#7826#7827#0" expanded="true" />
             <element signature="e#8951#8952#0" expanded="true" />
             <element signature="e#8997#8998#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MaxFlowFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="100" column="35" selection-start-line="100" selection-start-column="35" selection-end-line="100" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
