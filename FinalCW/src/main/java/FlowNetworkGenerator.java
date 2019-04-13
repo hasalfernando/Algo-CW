@@ -3,6 +3,8 @@ import org.jgrapht.graph.DefaultEdge;
 
 import javax.swing.*;
 import java.awt.*;
+import java.sql.Date;
+import java.sql.Time;
 import java.util.Scanner;
 
 public class FlowNetworkGenerator extends JApplet{
@@ -23,6 +25,7 @@ public class FlowNetworkGenerator extends JApplet{
     //private int[][] connected = new int[numOfNodes][numOfNodes];
 
     public static void main(String[] args) throws InterruptedException {
+
 
         FlowNetworkGenerator flowNetworkGenerator = new FlowNetworkGenerator();
         Scanner sc = new Scanner(System.in);
@@ -117,10 +120,6 @@ public class FlowNetworkGenerator extends JApplet{
         }
 
 
-//        System.out.println("Node which connects source and sink: "+flowNetworkGenerator.tempForAugPath);
-
-
-
 /*
         System.out.println("-----------------------");
         for(int i = 0; i<flowNetworkGenerator.numOfNodes; i++){
@@ -143,8 +142,9 @@ public class FlowNetworkGenerator extends JApplet{
 
         FordFulkerson m = new FordFulkerson();
 
+        long startTime = System.currentTimeMillis();
         System.out.println("\nThe maximum possible flow is " + m.fordFulkerson(flowNetworkGenerator.edge_capacity, 0, flowNetworkGenerator.numOfNodes-1, flowNetworkGenerator.numOfNodes,drawnGraph));
-
+        System.out.println("Elapsed time: "+(System.currentTimeMillis()-startTime));
 
 
     }

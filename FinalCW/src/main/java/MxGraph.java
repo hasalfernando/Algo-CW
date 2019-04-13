@@ -157,7 +157,7 @@ public class MxGraph {
 
         graph.getModel().beginUpdate();
         try {
-            TimeUnit.SECONDS.sleep(3);
+            //TimeUnit.SECONDS.sleep(3);
             Object[] edges = graph.getEdgesBetween(vertexList.get(u), vertexList.get(v), true);
 
             for( Object edge: edges) {
@@ -178,7 +178,6 @@ public class MxGraph {
         graphComponent.setFoldingEnabled(true);
         panel.setLayout(new BorderLayout());
         panel.add(graphComponent, BorderLayout.CENTER);
-        //maxFlowLabel.setText("Max Flow: ");
         panel.add(maxFlowLabel, BorderLayout.NORTH);
         frame.add(panel);
         frame.setVisible(true);
