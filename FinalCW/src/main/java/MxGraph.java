@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class MxGraphSample {
+public class MxGraph {
 
     private List<Object> vertexList = new ArrayList<Object>();
     private List<Object> edgeList = new ArrayList<Object>();

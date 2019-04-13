@@ -1,14 +1,4 @@
-import org.jgrapht.ext.JGraphXAdapter;
-import org.jgrapht.graph.DefaultEdge;
-
-import com.mxgraph.layout.*;
-import com.mxgraph.swing.*;
-import org.jgrapht.*;
-import org.jgrapht.ext.*;
-import org.jgrapht.graph.*;
-
 import javax.swing.*;
-import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -67,7 +57,7 @@ class FordFulkerson extends JApplet{
     }
 
     // Returns tne maximum flow from s to t in the given graph
-    int fordFulkerson(int[][] graph, int s, int t, int V, MxGraphSample drawnGraph) throws InterruptedException {
+    int fordFulkerson(int[][] graph, int s, int t, int V, MxGraph drawnGraph) throws InterruptedException {
 
         //Creating temporary lists to store the starting nodes, ending nodes, path flows and renewed capacity lists
         //To graphically represent a flow starting from node 's' (node 0)

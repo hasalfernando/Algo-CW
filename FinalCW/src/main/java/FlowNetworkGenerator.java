@@ -1,10 +1,5 @@
-import com.mxgraph.layout.mxCircleLayout;
-import com.mxgraph.swing.mxGraphComponent;
-import org.jgrapht.ListenableGraph;
 import org.jgrapht.ext.JGraphXAdapter;
-import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
-import org.jgrapht.graph.DefaultListenableGraph;
 
 import javax.swing.*;
 import java.awt.*;
@@ -144,7 +139,7 @@ public class FlowNetworkGenerator extends JApplet{
             System.out.println(" ");
         }
 */
-        MxGraphSample drawnGraph = flowNetworkGenerator.graphGenerator();
+        MxGraph drawnGraph = flowNetworkGenerator.graphGenerator();
 
         FordFulkerson m = new FordFulkerson();
 
@@ -223,9 +218,9 @@ public class FlowNetworkGenerator extends JApplet{
         return edge_capacity[u][v] > 0;
     }
 
-    public MxGraphSample graphGenerator(){
+    public MxGraph graphGenerator(){
 
-        MxGraphSample applet = new MxGraphSample();
+        MxGraph applet = new MxGraph();
         applet.createGraph(this.numOfNodes,this.numOfEdges, this.edge_capacity);
         return applet;
 /*       JGraphAdapterDemo applet = new JGraphAdapterDemo(this.numOfNodes,this.numOfEdges, this.edge_capacity);
