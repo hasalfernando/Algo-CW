@@ -114,6 +114,7 @@ public class MaxFlowFinder {
                     System.out.println(" ");
                     finalU.add(u);
                     finalV.add(v);
+                    number++;
                     for(int i = tempU.size()-1; i>-1; i--) {
                         System.out.println(number+". Connecting "+nodeNames[tempU.get(i)]+" to "+nodeNames[tempV.get(i)]+" having a capacity of "+rGraph[tempU.get(i)][tempV.get(i)]);
                         System.out.println("---A flow of "+path_flow+ " is sent from "+nodeNames[tempU.get(i)]+" to "+nodeNames[tempV.get(i)]);
@@ -125,13 +126,13 @@ public class MaxFlowFinder {
                         System.out.println("------Available capacity from "+nodeNames[tempU.get(i)]+" to "+nodeNames[tempV.get(i)]+" = "+rGraph[tempU.get(i)][tempV.get(i)]);
                         System.out.println("------Available capacity from "+nodeNames[tempV.get(i)]+" to "+nodeNames[tempU.get(i)]+" = "+rGraph[tempV.get(i)][tempU.get(i)]);
                         System.out.println(" ");
+                        number++;
                     }
 
                     tempU.clear();
                     tempV.clear();
                 }
 
-                number++;
             }
 
             max_flow += path_flow;
