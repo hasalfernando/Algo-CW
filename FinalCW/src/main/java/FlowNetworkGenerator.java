@@ -86,13 +86,52 @@ public class FlowNetworkGenerator extends JApplet{
                         ordinalIndicator = "th";
                 }
                 System.out.println("Please enter the starting node of your " + (i + 1) + ordinalIndicator+" edge");
+                while(!sc.hasNextInt()){
+                    System.out.println("Please enter a valid integer");
+                    sc.next();
+                }
                 start = sc.nextInt();
+                while((start>=flowNetworkGenerator.numOfNodes-1)||(start<0)){
+                    System.out.println("Your have entered a wrong input");
+                    System.out.println("Please enter a number between 0 and "+(flowNetworkGenerator.numOfNodes-2));
+                    while(!sc.hasNextInt()){
+                        System.out.println("Please enter a valid integer");
+                        sc.next();
+                    }
+                    start = sc.nextInt();
+                }
                 flowNetworkGenerator.edge_u[i] = start;
                 System.out.println("Please enter the ending node of your " + (i + 1) + ordinalIndicator+" edge");
+                while(!sc.hasNextInt()){
+                    System.out.println("Please enter a valid integer");
+                    sc.next();
+                }
                 end = sc.nextInt();
+                while((end>flowNetworkGenerator.numOfNodes-1)||(end<=0)){
+                    System.out.println("Your have entered a wrong input");
+                    System.out.println("Please enter a number between 1 and "+(flowNetworkGenerator.numOfNodes-1));
+                    while(!sc.hasNextInt()){
+                        System.out.println("Please enter a valid integer");
+                        sc.next();
+                    }
+                    end = sc.nextInt();
+                }
                 flowNetworkGenerator.edge_v[i] = end;
                 System.out.println("Please enter the capacity of your " + (i + 1) + ordinalIndicator+" edge");
+                while(!sc.hasNextInt()){
+                    System.out.println("Please enter a valid integer");
+                    sc.next();
+                }
                 capacity = sc.nextInt();
+                while((capacity>20)||(capacity<5)){
+                    System.out.println("Your have entered a wrong input");
+                    System.out.println("Please enter a number between 5 and 20");
+                    while(!sc.hasNextInt()){
+                        System.out.println("Please enter a valid integer");
+                        sc.next();
+                    }
+                    capacity = sc.nextInt();
+                }
                 flowNetworkGenerator.edge_capacity[start][end] = capacity;
 
             }
@@ -130,7 +169,7 @@ public class FlowNetworkGenerator extends JApplet{
         long startTime = System.currentTimeMillis();
 
         //Print calculated maximum flow on the console
-        int maximumFlow = m.fordFulkerson(flowNetworkGenerator.edge_capacity, 0, flowNetworkGenerator.numOfNodes-1, flowNetworkGenerator.numOfNodes,drawnGraph);
+        int maximumFlow = m.fordFulkerson(flowNetworkGenerator.edge_capacity, 0, flowNetworkGenerator.numOfNodes-1, flowNetworkGenerator.numOfNodes,drawnGraph,flowNetworkGenerator.nodeNames);
         System.out.println("\nThe maximum possible flow is " + maximumFlow);
         //Print the elapsed time
         System.out.println("Elapsed milli seconds: "+(System.currentTimeMillis()-startTime));

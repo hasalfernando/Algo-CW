@@ -142,7 +142,7 @@ public class MxGraph {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public synchronized void addEdge(int u, int v, int path_flow, int[][] graphOriginal, String color) {
+    public synchronized void addEdge(int u, int v, int path_flow, int[][] graphOriginal, String color) throws InterruptedException{
         graph.getModel().beginUpdate();
         try {
             //TimeUnit.SECONDS.sleep(1);

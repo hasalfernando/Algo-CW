@@ -52,7 +52,7 @@ public class MaxFlowFinder {
     }
 
     // Returns tne maximum flow from s to t in the given graph
-    public synchronized int fordFulkerson(int[][] graph, int s, int t, int V, MxGraph drawnGraph) throws InterruptedException {
+    public synchronized int fordFulkerson(int[][] graph, int s, int t, int V, MxGraph drawnGraph, char[] nodeNames) throws InterruptedException {
 
         //Creating temporary lists to store the starting nodes, ending nodes, path flows and renewed capacity lists
         //To graphically represent a flow starting from node 's' (node 0)
@@ -95,10 +95,6 @@ public class MaxFlowFinder {
             for (v=t; v != s; v=parent[v]){
 
                 u = parent[v];
-                System.out.println(number+". Connecting "+u+" to "+v+" having a capacity of "+rGraph[u][v]);
-                System.out.println("---A flow of "+path_flow+ " is sent from "+u+" to "+v);
-                rGraph[u][v] -= path_flow;
-                rGraph[v][u] += path_flow;
 
                 //To visualize the flow starting from s node
                 if(u!=0){
@@ -108,22 +104,33 @@ public class MaxFlowFinder {
                     tempV.add(v);
                 }
                 else {
+                    System.out.println(number+". Connecting "+nodeNames[u]+" to "+nodeNames[v]+" having a capacity of "+rGraph[u][v]);
+                    System.out.println("---A flow of "+path_flow+ " is sent from "+nodeNames[u]+" to "+nodeNames[v]);
+                    rGraph[u][v] -= path_flow;
+                    rGraph[v][u] += path_flow;
                     drawnGraph.addEdge(u, v, (rGraph[v][u]-graph[v][u]), graph,"red");
+                    System.out.println("------Available capacity from "+nodeNames[u]+" to "+nodeNames[v]+" = "+rGraph[u][v]);
+                    System.out.println("------Available capacity from "+nodeNames[v]+" to "+nodeNames[u]+" = "+rGraph[v][u]);
+                    System.out.println(" ");
                     finalU.add(u);
                     finalV.add(v);
                     for(int i = tempU.size()-1; i>-1; i--) {
+                        System.out.println(number+". Connecting "+nodeNames[tempU.get(i)]+" to "+nodeNames[tempV.get(i)]+" having a capacity of "+rGraph[tempU.get(i)][tempV.get(i)]);
+                        System.out.println("---A flow of "+path_flow+ " is sent from "+nodeNames[tempU.get(i)]+" to "+nodeNames[tempV.get(i)]);
+                        rGraph[tempU.get(i)][tempV.get(i)] -= path_flow;
+                        rGraph[tempV.get(i)][tempU.get(i)] += path_flow;
                         drawnGraph.addEdge(tempU.get(i), tempV.get(i), (rGraph[tempV.get(i)][tempU.get(i)]-graph[tempV.get(i)][tempU.get(i)]), graph, "red");
                         finalU.add(tempU.get(i));
                         finalV.add(tempV.get(i));
+                        System.out.println("------Available capacity from "+nodeNames[tempU.get(i)]+" to "+nodeNames[tempV.get(i)]+" = "+rGraph[tempU.get(i)][tempV.get(i)]);
+                        System.out.println("------Available capacity from "+nodeNames[tempV.get(i)]+" to "+nodeNames[tempU.get(i)]+" = "+rGraph[tempV.get(i)][tempU.get(i)]);
+                        System.out.println(" ");
                     }
 
                     tempU.clear();
                     tempV.clear();
                 }
 
-                System.out.println("------Available capacity from "+u+" to "+v+" = "+rGraph[u][v]);
-                System.out.println("------Available capacity from "+v+" to "+u+" = "+rGraph[v][u]);
-                System.out.println(" ");
                 number++;
             }
 
