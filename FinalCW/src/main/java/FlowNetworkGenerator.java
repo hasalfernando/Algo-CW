@@ -129,7 +129,7 @@ public class FlowNetworkGenerator extends JApplet{
             flowNetworkGenerator.printEdgeCapacities();
         }
         else {
-            flowNetworkGenerator.numOfNodes = flowNetworkGenerator.generateRandomNumber(6, 12);
+            flowNetworkGenerator.numOfNodes = flowNetworkGenerator.generateRandomNumber(192, 192);
             flowNetworkGenerator.numOfEdges = flowNetworkGenerator.generateRandomNumber(4, ((flowNetworkGenerator.numOfNodes * (flowNetworkGenerator.numOfNodes - 1)) - (2 * flowNetworkGenerator.numOfNodes) + 3));
             flowNetworkGenerator.nodeNames = new char[flowNetworkGenerator.numOfNodes];
             flowNetworkGenerator.edge_u = new int[flowNetworkGenerator.numOfEdges];
