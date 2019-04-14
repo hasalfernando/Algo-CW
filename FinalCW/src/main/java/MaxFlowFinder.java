@@ -136,13 +136,12 @@ public class MaxFlowFinder {
             }
 
             max_flow += path_flow;
-            //drawnGraph.updateMaxFlow(max_flow);
+            drawnGraph.updateMaxFlow(max_flow);
 
         }
         synchronized (drawnGraph) {
             for (int i = 0; i < finalU.size(); i++) {
                 drawnGraph.addEdge(finalU.get(i), finalV.get(i), (rGraph[finalV.get(i)][finalU.get(i)] - graph[finalV.get(i)][finalU.get(i)]), graph, "blue");
-                //drawnGraph.updateMaxFlow(max_flow);
             }
         }
         return max_flow;

@@ -8,12 +8,13 @@ public class FlowNetworkGenerator extends JApplet{
     private int[] edge_u;
     private int[] edge_v;
     private int[][] edge_capacity;
+    private static Scanner sc = new Scanner(System.in);
+    private static String ordinalIndicator;
 
     public static void main(String[] args) throws InterruptedException {
 
 
         FlowNetworkGenerator flowNetworkGenerator = new FlowNetworkGenerator();
-        Scanner sc = new Scanner(System.in);
         System.out.println("Please select an option from the menu below to find the maximum flow\n1. Select my own number of nodes, edges and capacities\n2. Randomly generate a graph");
         while(!sc.hasNextInt()){
             System.out.println("Please enter a valid integer");
@@ -67,24 +68,8 @@ public class FlowNetworkGenerator extends JApplet{
             flowNetworkGenerator.edge_capacity = new int[flowNetworkGenerator.numOfNodes][flowNetworkGenerator.numOfNodes];
 
             for (int i = 0; i < flowNetworkGenerator.numOfEdges; i++) {
-                int start = 0;
-                int end = 0;
-                int capacity = 0;
-                String ordinalIndicator;
-
-                switch (i){
-                    case 0:
-                        ordinalIndicator = "st";
-                        break;
-                    case 1:
-                        ordinalIndicator = "nd";
-                        break;
-                    case 2:
-                        ordinalIndicator = "rd";
-                        break;
-                    default:
-                        ordinalIndicator = "th";
-                }
+                int start, end, capacity;
+                flowNetworkGenerator.ordinalIndicatorAssigner(i);
                 System.out.println("Please enter the starting node of your " + (i + 1) + ordinalIndicator+" edge");
                 while(!sc.hasNextInt()){
                     System.out.println("Please enter a valid integer");
@@ -173,8 +158,159 @@ public class FlowNetworkGenerator extends JApplet{
         System.out.println("\nThe maximum possible flow is " + maximumFlow);
         //Print the elapsed time
         System.out.println("Elapsed milli seconds: "+(System.currentTimeMillis()-startTime));
-        //TimeUnit.MILLISECONDS.sleep(400);
         drawnGraph.updateMaxFlow(maximumFlow);
+
+        System.out.println("Do you want to edit the existing graph ? Enter 1 for yes and 0 for no");
+        int edit = sc.nextInt();
+        while(edit==1){
+            flowNetworkGenerator.removeEdges();
+            flowNetworkGenerator.addEdges();
+            drawnGraph = flowNetworkGenerator.graphGenerator();
+            m = new MaxFlowFinder();
+
+            //Get the time to calculate the elapsed time at the end
+            startTime = System.currentTimeMillis();
+
+            //Print calculated maximum flow on the console
+            maximumFlow = m.fordFulkerson(flowNetworkGenerator.edge_capacity, 0, flowNetworkGenerator.numOfNodes-1, flowNetworkGenerator.numOfNodes, drawnGraph, flowNetworkGenerator.nodeNames);
+            System.out.println("\nThe maximum possible flow is " + maximumFlow);
+            //Print the elapsed time
+            System.out.println("Elapsed milli seconds: "+(System.currentTimeMillis()-startTime));
+            drawnGraph.updateMaxFlow(maximumFlow);
+
+            System.out.println("Do you want to edit the existing graph ? Enter 1 for yes and 0 for no");
+            edit = sc.nextInt();
+        }
+
+    }
+
+    private void addEdges() {
+
+        System.out.println("Please enter your preferred number of edges to add");
+        while(!sc.hasNextInt()){
+            System.out.println("Please enter a valid integer");
+            sc.next();
+        }
+        int newEdges = sc.nextInt();
+        int edgeStart, edgeEnd, capacity;
+        for (int i = 0; i < newEdges; i++) {
+            ordinalIndicatorAssigner(i);
+            System.out.println("Please enter the starting node of your " + (i + 1) + ordinalIndicator + " edge");
+            while (!sc.hasNextInt()) {
+                System.out.println("Please enter a valid integer");
+                sc.next();
+            }
+            edgeStart = sc.nextInt();
+            while ((edgeStart >= numOfNodes - 1) || (edgeStart < 0)) {
+                System.out.println("Your have entered a wrong input");
+                System.out.println("Please enter a number between 0 and " + (numOfNodes - 2)+" to add starting node");
+                while (!sc.hasNextInt()) {
+                    System.out.println("Please enter a valid integer");
+                    sc.next();
+                }
+                edgeStart = sc.nextInt();
+            }
+            System.out.println("Please enter the ending node of your " + (i + 1) + ordinalIndicator + " edge");
+            while (!sc.hasNextInt()) {
+                System.out.println("Please enter a valid integer");
+                sc.next();
+            }
+            edgeEnd = sc.nextInt();
+            while ((edgeEnd > numOfNodes - 1) || (edgeEnd <= 0)) {
+                System.out.println("Your have entered a wrong input");
+                System.out.println("Please enter a number between 1 and " + (numOfNodes - 1)+ " to add ending node");
+                while (!sc.hasNextInt()) {
+                    System.out.println("Please enter a valid integer");
+                    sc.next();
+                }
+                edgeEnd = sc.nextInt();
+            }
+            System.out.println("Please enter the capacity of your " + (i + 1) + ordinalIndicator + " edge");
+            while (!sc.hasNextInt()) {
+                System.out.println("Please enter a valid integer");
+                sc.next();
+            }
+            capacity = sc.nextInt();
+            while ((capacity > 20) || (capacity < 5)) {
+                System.out.println("Your have entered a wrong input");
+                System.out.println("Please enter a number between 5 and 20 to add new capacity");
+                while (!sc.hasNextInt()) {
+                    System.out.println("Please enter a valid integer");
+                    sc.next();
+                }
+                capacity = sc.nextInt();
+            }
+            edge_capacity[edgeStart][edgeEnd] = capacity;
+        }
+    }
+
+    private void ordinalIndicatorAssigner(int i) {
+        switch (i){
+            case 0:
+                ordinalIndicator = "st";
+                break;
+            case 1:
+                ordinalIndicator = "nd";
+                break;
+            case 2:
+                ordinalIndicator = "rd";
+                break;
+            default:
+                ordinalIndicator = "th";
+        }
+    }
+
+    private void removeEdges() throws InterruptedException{
+
+        System.out.println("Please enter your preferred number of edges to remove");
+        while(!sc.hasNextInt()){
+            System.out.println("Please enter a valid integer");
+            sc.next();
+        }
+        int edgesToRemove = sc.nextInt();
+
+        for (int i = 0; i < edgesToRemove; i++) {
+            int start, end;
+            ordinalIndicatorAssigner(i);
+            System.out.println("Please enter the starting node of your " + (i + 1) + ordinalIndicator+" edge to remove");
+            while(!sc.hasNextInt()){
+                System.out.println("Please enter a valid integer");
+                sc.next();
+            }
+            start = sc.nextInt();
+            while((start>=numOfNodes-1)||(start<0)){
+                System.out.println("Your have entered a wrong input");
+                System.out.println("Please enter a number between 0 and "+(numOfNodes-2));
+                while(!sc.hasNextInt()){
+                    System.out.println("Please enter a valid integer");
+                    sc.next();
+                }
+                start = sc.nextInt();
+            }
+            System.out.println("Please enter the ending node of your " + (i + 1) + ordinalIndicator+" edge to remove");
+            while(!sc.hasNextInt()){
+                System.out.println("Please enter a valid integer");
+                sc.next();
+            }
+            end = sc.nextInt();
+            while((end>numOfNodes-1)||(end<=0)){
+                System.out.println("Your have entered a wrong input");
+                System.out.println("Please enter a number between 1 and "+(numOfNodes-1));
+                while(!sc.hasNextInt()){
+                    System.out.println("Please enter a valid integer");
+                    sc.next();
+                }
+                end = sc.nextInt();
+            }
+            edge_capacity[start][end] = 0;
+
+        }
+        System.out.println("Number of Nodes(including s and t): " + numOfNodes);
+        System.out.println("Number of Edges: " + numOfEdges);
+        System.out.println("\n-------------------------");
+        System.out.println("| Connection | Capacity |");
+        System.out.println("-------------------------");
+        printEdgeCapacities();
 
     }
 
@@ -236,7 +372,7 @@ public class FlowNetworkGenerator extends JApplet{
 
     //Connect two edges by adding a capacity
     private void connect(int u, int v){
-        edge_capacity[u][v] = (int) ((Math.random() * 20) + 5);
+        edge_capacity[u][v] = generateRandomNumber(5, 20);
 
     }
 
@@ -246,7 +382,7 @@ public class FlowNetworkGenerator extends JApplet{
     }
 
     //Generate the graph with correct number of nodes and edges before any flow
-    public MxGraph graphGenerator(){
+    private MxGraph graphGenerator(){
 
         MxGraph applet = new MxGraph();
         applet.createGraph(this.numOfNodes,this.numOfEdges, this.edge_capacity);
