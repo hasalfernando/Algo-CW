@@ -145,7 +145,7 @@ public class MxGraph {
     public synchronized void addEdge(int u, int v, int path_flow, int[][] graphOriginal, String color) throws InterruptedException{
         graph.getModel().beginUpdate();
         try {
-            TimeUnit.SECONDS.sleep(1);
+            //TimeUnit.SECONDS.sleep(1);
             Object[] edges = graph.getEdgesBetween(vertexList.get(u), vertexList.get(v), true);
 
             for( Object edge: edges) {
