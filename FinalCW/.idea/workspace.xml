@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42e57697-b6a5-471c-b9f9-6e2ac171c0eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MxGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MxGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MxGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MxGraph.class" afterDir="false" />
-    </list>
+    <list default="true" id="42e57697-b6a5-471c-b9f9-6e2ac171c0eb" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,7 +70,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/FlowNetworkGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
+            <state relative-caret-position="136">
               <caret line="131" column="93" selection-start-line="131" selection-start-column="93" selection-end-line="131" selection-end-column="93" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -224,7 +220,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555242630043" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555242996802" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -321,12 +317,12 @@
       <workItem from="1555039262318" duration="49219000" />
       <workItem from="1555154068080" duration="4423000" />
       <workItem from="1555158539530" duration="18807000" />
-      <workItem from="1555205207100" duration="18816000" />
+      <workItem from="1555205207100" duration="19678000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181385000" />
+    <option name="totallyTimeSpent" value="182247000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -524,7 +520,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/FlowNetworkGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state relative-caret-position="136">
           <caret line="131" column="93" selection-start-line="131" selection-start-column="93" selection-end-line="131" selection-end-column="93" />
           <folding>
             <element signature="imports" expanded="true" />
