@@ -1,6 +1,11 @@
 import javax.swing.*;
 import java.util.Scanner;
 
+    /*
+        Student Name - Hasal Fernando
+        UoW ID - w1697758
+     */
+
 public class FlowNetworkGenerator extends JApplet{
 
     private int numOfNodes, numOfEdges, tempForAugPath = 0;
@@ -129,7 +134,7 @@ public class FlowNetworkGenerator extends JApplet{
             flowNetworkGenerator.printEdgeCapacities();
         }
         else {
-            flowNetworkGenerator.numOfNodes = flowNetworkGenerator.generateRandomNumber(192, 192);
+            flowNetworkGenerator.numOfNodes = flowNetworkGenerator.generateRandomNumber(6, 12);
             flowNetworkGenerator.numOfEdges = flowNetworkGenerator.generateRandomNumber(4, ((flowNetworkGenerator.numOfNodes * (flowNetworkGenerator.numOfNodes - 1)) - (2 * flowNetworkGenerator.numOfNodes) + 3));
             flowNetworkGenerator.nodeNames = new char[flowNetworkGenerator.numOfNodes];
             flowNetworkGenerator.edge_u = new int[flowNetworkGenerator.numOfEdges];
@@ -154,13 +159,13 @@ public class FlowNetworkGenerator extends JApplet{
         long startTime = System.currentTimeMillis();
 
         //Print calculated maximum flow on the console
-        int maximumFlow = m.fordFulkerson(flowNetworkGenerator.edge_capacity, 0, flowNetworkGenerator.numOfNodes-1, flowNetworkGenerator.numOfNodes,drawnGraph,flowNetworkGenerator.nodeNames);
+        int maximumFlow = m.findMaxFlow(flowNetworkGenerator.edge_capacity, 0, flowNetworkGenerator.numOfNodes-1, flowNetworkGenerator.numOfNodes,drawnGraph,flowNetworkGenerator.nodeNames);
         System.out.println("\nThe maximum possible flow is " + maximumFlow);
         //Print the elapsed time
         System.out.println("Elapsed milli seconds: "+(System.currentTimeMillis()-startTime));
         drawnGraph.updateMaxFlow(maximumFlow);
 
-        System.out.println("Do you want to edit the existing graph ? Enter 1 for yes and 0 for no");
+        System.out.println("Do you want to edit the existing graph ? Enter 1 to edit");
         int edit = sc.nextInt();
         while(edit==1){
             flowNetworkGenerator.removeEdges();
@@ -172,13 +177,13 @@ public class FlowNetworkGenerator extends JApplet{
             startTime = System.currentTimeMillis();
 
             //Print calculated maximum flow on the console
-            maximumFlow = m.fordFulkerson(flowNetworkGenerator.edge_capacity, 0, flowNetworkGenerator.numOfNodes-1, flowNetworkGenerator.numOfNodes, drawnGraph, flowNetworkGenerator.nodeNames);
+            maximumFlow = m.findMaxFlow(flowNetworkGenerator.edge_capacity, 0, flowNetworkGenerator.numOfNodes-1, flowNetworkGenerator.numOfNodes, drawnGraph, flowNetworkGenerator.nodeNames);
             System.out.println("\nThe maximum possible flow is " + maximumFlow);
             //Print the elapsed time
             System.out.println("Elapsed milli seconds: "+(System.currentTimeMillis()-startTime));
             drawnGraph.updateMaxFlow(maximumFlow);
 
-            System.out.println("Do you want to edit the existing graph ? Enter 1 for yes and 0 for no");
+            System.out.println("Do you want to edit the existing graph ? Enter 1 to edit");
             edit = sc.nextInt();
         }
 
@@ -186,6 +191,7 @@ public class FlowNetworkGenerator extends JApplet{
 
     private void addEdges() {
 
+        //Taking user inputs while doing validations
         System.out.println("Please enter your preferred number of edges to add");
         while(!sc.hasNextInt()){
             System.out.println("Please enter a valid integer");
@@ -244,6 +250,7 @@ public class FlowNetworkGenerator extends JApplet{
         }
     }
 
+    //Assigning the ordinal Indicator
     private void ordinalIndicatorAssigner(int i) {
         switch (i){
             case 0:
@@ -260,6 +267,7 @@ public class FlowNetworkGenerator extends JApplet{
         }
     }
 
+    //If the user wants to remove an edge in the process of editing the existing graph
     private void removeEdges() throws InterruptedException{
 
         System.out.println("Please enter your preferred number of edges to remove");
@@ -314,6 +322,7 @@ public class FlowNetworkGenerator extends JApplet{
 
     }
 
+    //Generate the flow network
     private void generateNetwork(){
 
         int tempVNode;

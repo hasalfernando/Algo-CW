@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42e57697-b6a5-471c-b9f9-6e2ac171c0eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FlowNetworkGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FlowNetworkGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/FlowNetworkGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/FlowNetworkGenerator.class" afterDir="false" />
-    </list>
+    <list default="true" id="42e57697-b6a5-471c-b9f9-6e2ac171c0eb" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,11 +14,12 @@
     <session id="436388060">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="19" />
+          <entry key="project.closed" value="20" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.24" value="1" />
+          <entry key="project.open.time.51" value="1" />
           <entry key="project.open.time.56" value="2" />
           <entry key="project.open.time.57" value="1" />
           <entry key="project.open.time.61" value="1" />
@@ -36,7 +33,7 @@
           <entry key="project.open.time.84" value="1" />
           <entry key="project.open.time.88" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="20" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -47,7 +44,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="11519" />
+          <entry key="JAVA" value="11951" />
           <entry key="PLAIN_TEXT" value="28" />
           <entry key="XML" value="53" />
         </counts>
@@ -65,24 +62,52 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-1292089076">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-5807454">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="77" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-996147545">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="3" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="FinalCW" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/FlowNetworkGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="140" column="62" lean-forward="true" selection-start-line="140" selection-start-column="62" selection-end-line="140" selection-end-column="62" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#17808#17809#0" expanded="true" />
-                <element signature="e#17867#17868#0" expanded="true" />
-                <element signature="e#18992#18993#0" expanded="true" />
-                <element signature="e#19038#19039#0" expanded="true" />
-              </folding>
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -90,23 +115,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MaxFlowFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="119">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/MxGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1594">
-              <caret line="147" column="14" selection-start-line="147" selection-start-column="14" selection-end-line="147" selection-end-column="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="119">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -138,8 +157,8 @@
   <component name="GradleLocalSettings">
     <option name="projectSyncType">
       <map>
-        <entry key="$PROJECT_DIR$/../../../../../SEM 1/OOP/Tests/play-java-starter-example/play-java-starter-example" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../../../../../SEM 1/OOP/java play example/play-java-starter-example" value="PREVIEW" />
+        <entry key="C:/../SEM 1/OOP/Tests/play-java-starter-example/play-java-starter-example" value="PREVIEW" />
+        <entry key="C:/../SEM 1/OOP/java play example/play-java-starter-example" value="PREVIEW" />
       </map>
     </option>
   </component>
@@ -153,9 +172,9 @@
         <option value="$PROJECT_DIR$/src/main/java/JGraphAdapterDemo.java" />
         <option value="$PROJECT_DIR$/src/main/java/HelloWorld.java" />
         <option value="$PROJECT_DIR$/src/main/java/FordFulkerson.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MxGraph.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MaxFlowFinder.java" />
         <option value="$PROJECT_DIR$/src/main/java/FlowNetworkGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MaxFlowFinder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MxGraph.java" />
       </list>
     </option>
   </component>
@@ -184,7 +203,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -210,23 +228,25 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="FinalCW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555261645354" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555310822713" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.14257812" />
+    <property name="project.structure.side.proportion" value="0.23663254" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -248,7 +268,7 @@
   <component name="RunManager" selected="Application.FlowNetworkGenerator">
     <configuration name="FlowNetworkGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FlowNetworkGenerator" />
-      <module name="FinalCW" />
+      <module name="CW" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -282,13 +302,13 @@
   <component name="SbtLocalSettings">
     <option name="projectSyncType">
       <map>
-        <entry key="$PROJECT_DIR$/../../../../../SEM 1/OOP/CW/Done/TestFinalUpload/w1697758/Project/Westminster Library Program" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../../../../../SEM 1/OOP/CW/Done/java-play-angular-seed-master/java-play-angular-seed-master" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../../../../../SEM 1/OOP/Tests/Ebean mapping/iit-simple-library-ebean/iit-simple-library-ebean" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../../../../../SEM 1/OOP/Tests/Westminster Library Program/Westminster Library Program" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../../../../../SEM 1/OOP/Tests/iit-simple-library-master/iit-simple-library-master" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../../../../../SEM 1/OOP/Tests/java-play-angular-seed-master/java-play-angular-seed-master" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/../../../../../SEM 1/OOP/Tests/play-angular-typescript.g8-master/play-angular-typescript.g8-master" value="PREVIEW" />
+        <entry key="C:/../SEM 1/OOP/CW/Done/TestFinalUpload/w1697758/Project/Westminster Library Program" value="PREVIEW" />
+        <entry key="C:/../SEM 1/OOP/CW/Done/java-play-angular-seed-master/java-play-angular-seed-master" value="PREVIEW" />
+        <entry key="C:/../SEM 1/OOP/Tests/Ebean mapping/iit-simple-library-ebean/iit-simple-library-ebean" value="PREVIEW" />
+        <entry key="C:/../SEM 1/OOP/Tests/Westminster Library Program/Westminster Library Program" value="PREVIEW" />
+        <entry key="C:/../SEM 1/OOP/Tests/iit-simple-library-master/iit-simple-library-master" value="PREVIEW" />
+        <entry key="C:/../SEM 1/OOP/Tests/java-play-angular-seed-master/java-play-angular-seed-master" value="PREVIEW" />
+        <entry key="C:/../SEM 1/OOP/Tests/play-angular-typescript.g8-master/play-angular-typescript.g8-master" value="PREVIEW" />
       </map>
     </option>
   </component>
@@ -321,12 +341,16 @@
       <workItem from="1555039262318" duration="49219000" />
       <workItem from="1555154068080" duration="4423000" />
       <workItem from="1555158539530" duration="18807000" />
-      <workItem from="1555205207100" duration="23754000" />
+      <workItem from="1555205207100" duration="30540000" />
+      <workItem from="1555305678817" duration="272000" />
+      <workItem from="1555306266764" duration="368000" />
+      <workItem from="1555306736396" duration="1014000" />
+      <workItem from="1555309362156" duration="1481000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186323000" />
+    <option name="totallyTimeSpent" value="196244000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -338,9 +362,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49874055" visible="true" weight="0.16375838" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49874055" visible="true" weight="0.17181209" />
       <window_info id="Structure" order="1" sideWeight="0.50125945" side_tool="true" weight="0.19597316" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -349,7 +373,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.50125945" side_tool="true" weight="0.19597316" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.26666668" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.22978723" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -406,6 +430,11 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -436,16 +465,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/StradarioView.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/HelloWorld.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HelloWorld.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/tinyjee/jgraphx/jgraphx/3.4.1.3/jgraphx-3.4.1.3.jar!/com/mxgraph/view/mxGraph.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
@@ -502,37 +522,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MxGraph.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/FlowNetworkGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1594">
-          <caret line="147" column="14" selection-start-line="147" selection-start-column="14" selection-end-line="147" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MaxFlowFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/FlowNetworkGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/MxGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="140" column="62" lean-forward="true" selection-start-line="140" selection-start-column="62" selection-end-line="140" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#17808#17809#0" expanded="true" />
-            <element signature="e#17867#17868#0" expanded="true" />
-            <element signature="e#18992#18993#0" expanded="true" />
-            <element signature="e#19038#19039#0" expanded="true" />
-          </folding>
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>

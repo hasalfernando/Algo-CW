@@ -5,12 +5,14 @@ import com.mxgraph.view.mxGraph;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+
+/*
+    Student Name - Hasal Fernando
+    UoW ID - w1697758
+ */
 
 public class MxGraph {
 
@@ -142,15 +144,21 @@ public class MxGraph {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+    //Add a new edge
     public synchronized void addEdge(int u, int v, int path_flow, int[][] graphOriginal, String color) throws InterruptedException{
         graph.getModel().beginUpdate();
         try {
-            //TimeUnit.SECONDS.sleep(1);
+            //Delay to make it easy to view
+            TimeUnit.SECONDS.sleep(3);
+
+            //Removing the existing edge
             Object[] edges = graph.getEdgesBetween(vertexList.get(u), vertexList.get(v), true);
 
             for( Object edge: edges) {
                 graph.getModel().remove(edge);
             }
+
+            //Inserting the new edge
             graph.insertEdge(parent, null, path_flow+"/" + String.valueOf(graphOriginal[u][v]), vertexList.get(u), vertexList.get(v),"strokeColor="+color+";fillColor="+color+";");
             pLayout.execute(graph.getDefaultParent());
         }
@@ -171,6 +179,7 @@ public class MxGraph {
         frame.add(panel);
     }
 
+    //Update the max flow label
     public synchronized void updateMaxFlow(int maxFlow){
 
         maxFlowLabel.setText("Max Flow: "+ maxFlow);

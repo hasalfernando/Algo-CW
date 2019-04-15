@@ -2,7 +2,13 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+/*
+    Student Name - Hasal Fernando
+    UoW ID - w1697758
+ */
+
 public class MaxFlowFinder {
+
 
     private int V = 0; //Number of vertices in graph
 
@@ -52,7 +58,7 @@ public class MaxFlowFinder {
     }
 
     // Returns tne maximum flow from s to t in the given graph
-    public synchronized int fordFulkerson(int[][] graph, int s, int t, int V, MxGraph drawnGraph, char[] nodeNames) throws InterruptedException {
+    public synchronized int findMaxFlow(int[][] graph, int s, int t, int V, MxGraph drawnGraph, char[] nodeNames) throws InterruptedException {
 
         //Creating temporary lists to store the starting nodes, ending nodes, path flows and renewed capacity lists
         //To graphically represent a flow starting from node 's' (node 0)
@@ -134,11 +140,13 @@ public class MaxFlowFinder {
                 }
 
             }
-
+            //Add path flow to max flow
             max_flow += path_flow;
             drawnGraph.updateMaxFlow(max_flow);
 
         }
+
+        //Draw the final flow in blue
         synchronized (drawnGraph) {
             for (int i = 0; i < finalU.size(); i++) {
                 drawnGraph.addEdge(finalU.get(i), finalV.get(i), (rGraph[finalV.get(i)][finalU.get(i)] - graph[finalV.get(i)][finalU.get(i)]), graph, "blue");
